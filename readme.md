@@ -15,12 +15,12 @@ Space is limited. **Please register**
 | ----- | ---------- | --------- |:-----------------:|
 1/26 | [Leaflet](https://rstudio.github.io/leaflet/) | Jena | [RSVP](http://duke.libcal.com/event/2980715)
 2/2 | [Rvest](https://blog.rstudio.org/2014/11/24/rvest-easy-web-scraping-with-r/) & [httR](https://github.com/hadley/httr/) |  [John](https://github.com/libjohn) | [RSVP](http://duke.libcal.com/event/2980717)
-2/9 | [ggplot2](http://ggplot2.org/) | Angela  | RSVP
-2/16 | [Shiny](http://shiny.rstudio.com/) | Joel  | RSVP
-2/23 | [Flex dashboards](http://rmarkdown.rstudio.com/flexdashboard/) | (open, how about you?) | RSVP
-3/2 | [ggvis](http://ggvis.rstudio.com/) | (open, how about you?) | RSVP
-3/9 | [Rmarkdown](http://rmarkdown.rstudio.com/) (kniter; slides; code-segments) | (open, how about you?)  | RSVP
-3/16 | [twitteR](https://www.r-bloggers.com/search/Twitter/) | John  | RSVP
+2/9 | [ggplot2](http://ggplot2.org/) | Angela  | [RSVP](http://duke.libcal.com/event/2980722)
+2/16 | [Shiny](http://shiny.rstudio.com/) | Joel  | [RSVP](http://duke.libcal.com/event/2980726)
+2/23 | [Flex dashboards](http://rmarkdown.rstudio.com/flexdashboard/) | (open, how about you?) | [RSVP](http://duke.libcal.com/event/2980741)
+3/2 | [ggvis](http://ggvis.rstudio.com/) | (open, how about you?) | [RSVP](http://duke.libcal.com/event/2980747)
+3/9 | [Rmarkdown](http://rmarkdown.rstudio.com/) (kniter; slides; code-segments) | (open, how about you?)  | [RSVP](http://duke.libcal.com/event/2980749)
+3/16 | [twitteR](https://www.r-bloggers.com/search/Twitter/) | John  | [RSVP](http://duke.libcal.com/event/2980750)
 
 ## Format
 Presenters are asked to speak for approximately 30 minutes; think lighting talks.  Leave time for questions and discussion.  Scope should be about R, R packages, RStudio and/or the Tidyverse with respect to Data Science, Data Analytics, Statistical Sciences and/or Big Data.   The following framework is encouraged:  
