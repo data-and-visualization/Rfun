@@ -11,8 +11,13 @@ This Spring the Data & Visualization Services Department will host a series of c
 ## Schedule, Spring 2017
 Space is limited, **please register**
 
-* 1/26 - [Leaflet](https://rstudio.github.io/leaflet/) - Jena - **[Register](http://duke.libcal.com/event/2980715)**    
-* 2/2 - [Rvest](https://blog.rstudio.org/2014/11/24/rvest-easy-web-scraping-with-r/) & [httR](https://github.com/hadley/httr/) - [John](https://github.com/libjohn)  
+| Date  | Topic      | Presenter | Registration Link |
+| ----- | ---------- | --------- | ----------------- |
+1/26 | [Leaflet](https://rstudio.github.io/leaflet/) | Jena | [RSVP](http://duke.libcal.com/event/2980715)
+2/2 | [Rvest](https://blog.rstudio.org/2014/11/24/rvest-easy-web-scraping-with-r/) & [httR](https://github.com/hadley/httr/) |  [John](https://github.com/libjohn) | [RSVP](http://duke.libcal.com/event/2980717)
+
+
+
 * 2/9 - [ggplot2](http://ggplot2.org/) - Angela  
 * 2/16 - [Shiny](http://shiny.rstudio.com/) - Joel  
 * 2/23 - [Flex dashboards](http://rmarkdown.rstudio.com/flexdashboard/)  - (open, how about you?)  
