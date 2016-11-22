@@ -18,3 +18,11 @@ This Spring the Data & Visualization Services Department will host a series of c
 * 3/2 - [ggvis](http://ggvis.rstudio.com/) - (open, how about you?)  
 * 3/9 - [Rmarkdown](http://rmarkdown.rstudio.com/) (kniter; slides; code-segments) - (open, how about you?)  
 * 3/16 - [twitteR](https://www.r-bloggers.com/search/Twitter/) - John  
+
+## Format
+Presenters are asked to speak for approximately 30 minutes; think lighting talks.  Leave time for questions and discussion.  Scope should be about R, R packages, RStudio and/or the Tidyverse with respect to Data Science, Data Analytics, Statistical Sciences and/or Big Data.   The following framework is encouraged:  
+* Why is this package/tool of interest?  
+* How does it work?  /  Is it worth it to learn it?  / What does a workflow look like?  
+* Expose attendees to what can be done with [R]  
+* How is your topic used in your discipline?  
+

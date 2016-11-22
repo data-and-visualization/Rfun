@@ -1,0 +1,3 @@
+scripts/*.Rmd linguist-language=R
+scripts/*.R linguist-language=R
+output/* linguist-documentation
