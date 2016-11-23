@@ -1,3 +1,2 @@
-scripts/*.Rmd linguist-language=R
-scripts/*.R linguist-language=R
-output/* linguist-documentation
+*.Rmd linguist-language=R
+*.R linguist-language=R
