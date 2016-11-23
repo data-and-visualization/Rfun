@@ -1,6 +1,6 @@
 # R we having fun yet‽  A learning series on [[R](https://en.wikipedia.org/wiki/R_(programming_language))].
 ## Sponsored by Duke University Libraries, [Data & Visualization Services](http://library.duke.edu/data)
-This Spring the Data & Visualization Services Department will host a series of campus/community-oriented, informal sessions on the R programming language.  Our goals is to promote a friendly environment for exploring the extensible capabilities of the R software environment specifically supported through R and RStudio.  Beginner's are welcome, experts will be encourage to share topical expertise.  How has R enabled your work?  What else can R help you accomplish?  Join us most Thursdays at noon in [the Edge](http://library.duke.edu/edge) (Murthy Digital Studio -- [map](http://library.duke.edu/edge/spaces)).  Bring your lunch (or not); *cookies and juice* will be provided.
+This Spring the Data & Visualization Services Department will host a series of campus/community-oriented, informal sessions on the R programming language.  Our goals is to promote a friendly environment for exploring the extensible capabilities of the R software environment specifically supported through R and RStudio.  Beginner's are welcome, experts will be encourage to share topical expertise.  How has R enabled your work?  What else can R help you accomplish?  Join us most Thursdays at noon in [the Edge](http://library.duke.edu/edge) (Murthy Digital Studio -- [map](http://library.duke.edu/edge/spaces)).  Bring your lunch (or not); * **cookies** and **juice** * will be provided.
 
 ## When:  Thursday's at noon
 
@@ -8,7 +8,7 @@ This Spring the Data & Visualization Services Department will host a series of c
 
 ## Where:  [Murthy Digital Studio](http://library.duke.edu/edge/spaces)
 
-## Schedule, Spring 2017
+## Schedule: Spring, 2017
 Space is limited. **Please register**
 
 | Date  | Topic      | Presenter | Registration Link |
@@ -20,7 +20,7 @@ Space is limited. **Please register**
 2/23 | [Flex dashboards](http://rmarkdown.rstudio.com/flexdashboard/) | (open, how about you?) | [RSVP](http://duke.libcal.com/event/2980741)
 3/2 | [ggvis](http://ggvis.rstudio.com/) | (open, how about you?) | [RSVP](http://duke.libcal.com/event/2980747)
 3/9 | [Rmarkdown](http://rmarkdown.rstudio.com/) (kniter; slides; code-segments) | (open, how about you?)  | [RSVP](http://duke.libcal.com/event/2980749)
-3/16 | [twitteR](https://www.r-bloggers.com/search/Twitter/) | John  | [RSVP](http://duke.libcal.com/event/2980750)
+3/16 | [twitteR](https://www.r-bloggers.com/search/Twitter/) | [John](https://github.com/libjohn)  | [RSVP](http://duke.libcal.com/event/2980750)
 
 ## Format
 Presenters are asked to speak for approximately 30 minutes; think lighting talks.  Leave time for questions and discussion.  Scope should be about R, R packages, RStudio and/or the Tidyverse with respect to Data Science, Data Analytics, Statistical Sciences and/or Big Data.   The following framework is encouraged:  
