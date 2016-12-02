@@ -4,7 +4,7 @@ This Spring the Data & Visualization Services Department will host a series of c
 
 ## When:  Thursday's at noon
 
-## Who:  R enthusiasts, begingers through advanced <br>Sponsored by the [Data & Visualization Services Department](http://library.duke.edu/data) 
+## Who:  R enthusiasts, beginngers through advanced <br>Sponsored by the [Data & Visualization Services Department](http://library.duke.edu/data) 
 
 ## Where:  [Murthy Digital Studio](http://library.duke.edu/edge/spaces)
 
