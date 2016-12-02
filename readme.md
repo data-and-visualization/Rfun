@@ -13,10 +13,10 @@ Space is limited. **Please register**
 
 | Date  | Topic      | Presenter | Registration Link |
 | ----- | ---------- | --------- |:-----------------:|
-1/26 | [Leaflet](https://rstudio.github.io/leaflet/) | Jena | [RSVP](http://duke.libcal.com/event/2980715)
+1/26 | [Leaflet](https://rstudio.github.io/leaflet/) | [Jena](https://github.com/jlhapp) | [RSVP](http://duke.libcal.com/event/2980715)
 2/2 | [Rvest](https://blog.rstudio.org/2014/11/24/rvest-easy-web-scraping-with-r/) & [httR](https://github.com/hadley/httr/) |  [John](https://github.com/libjohn) | [RSVP](http://duke.libcal.com/event/2980717)
-2/9 | [ggplot2](http://ggplot2.org/) | Angela  | [RSVP](http://duke.libcal.com/event/2980722)
-2/16 | [Shiny](http://shiny.rstudio.com/) | Joel  | [RSVP](http://duke.libcal.com/event/2980726)
+2/9 | [ggplot2](http://ggplot2.org/) | [Angela](https://github.com/amz25)  | [RSVP](http://duke.libcal.com/event/2980722)
+2/16 | [Shiny](http://shiny.rstudio.com/) | [Joel](https://github.com/herndonj)  | [RSVP](http://duke.libcal.com/event/2980726)
 2/23 | [Flex dashboards](http://rmarkdown.rstudio.com/flexdashboard/) | (open, how about you?) | [RSVP](http://duke.libcal.com/event/2980741)
 3/2 | [ggvis](http://ggvis.rstudio.com/) | (open, how about you?) | [RSVP](http://duke.libcal.com/event/2980747)
 3/9 | [Rmarkdown](http://rmarkdown.rstudio.com/) (kniter; slides; code-segments) | (open, how about you?)  | [RSVP](http://duke.libcal.com/event/2980749)
