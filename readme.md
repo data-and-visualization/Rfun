@@ -25,7 +25,7 @@ Space is limited. **Please register**
 3/30 | TBA - propose something.  R Notebooks, maybe? | (open, how about you?) | &nbsp; 
 
 ## Format
-Presenters are asked to speak for approximately 30 minutes; think lighting talks.  Leave time for questions and discussion.  Scope should be about R, R packages, RStudio and/or the Tidyverse with respect to Data Science, Data Analytics, Statistical Sciences and/or Big Data.   The following framework is encouraged:  
+Presenters are asked to speak for approximately 30 minutes; think lightning talks.  Leave time for questions and discussion.  Scope should be about R, R packages, RStudio and/or the Tidyverse with respect to Data Science, Data Analytics, Statistical Sciences and/or Big Data.   The following framework is encouraged:  
 * Why is this package/tool of interest?  
 * How does it work?  /  Is it worth it to learn it?  / What does a workflow look like?  
 * Expose attendees to what can be done with [R]  
