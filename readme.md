@@ -22,7 +22,7 @@ Space is limited. **Please register**
 3/9 | [Rmarkdown](http://rmarkdown.rstudio.com/) (knitr; slides; code-segments) | (open, how about you?)  | [RSVP](http://duke.libcal.com/event/2980749)
 3/16 | Spring Break, though... | (open, how about you?) | &nbsp; 
 3/23 | [twitteR](https://www.r-bloggers.com/search/Twitter/) | [John](https://github.com/libjohn)  | [RSVP](http://duke.libcal.com/event/2980750)
-3/30 | TBA - propose something | (open, how about you?) | &nbsp; 
+3/30 | TBA - propose something.  R Notebooks, maybe? | (open, how about you?) | &nbsp; 
 
 ## Format
 Presenters are asked to speak for approximately 30 minutes; think lighting talks.  Leave time for questions and discussion.  Scope should be about R, R packages, RStudio and/or the Tidyverse with respect to Data Science, Data Analytics, Statistical Sciences and/or Big Data.   The following framework is encouraged:  
