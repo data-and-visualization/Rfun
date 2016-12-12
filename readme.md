@@ -11,18 +11,18 @@ This Spring the Data & Visualization Services Department will host a series of c
 ## Schedule: Spring, 2017
 Space is limited. **Please register**
 
-| Date  | Topic      | Presenter | Registration Link |
-| ----- | ---------- | --------- |:-----------------:|
-1/26 | [Leaflet](https://rstudio.github.io/leaflet/) | [Jena](https://github.com/jlhapp) | [RSVP](http://duke.libcal.com/event/2980715)
-2/2 | [Rvest](https://blog.rstudio.org/2014/11/24/rvest-easy-web-scraping-with-r/) & [httR](https://github.com/hadley/httr/) (Web Scraping) |  [John](https://github.com/libjohn) | [RSVP](http://duke.libcal.com/event/2980717)
-2/9 | [ggplot2](http://ggplot2.org/) | [Angela](https://github.com/amz25)  | [RSVP](http://duke.libcal.com/event/2980722)
-2/16 | [Shiny](http://shiny.rstudio.com/) | [Joel](https://github.com/herndonj)  | [RSVP](http://duke.libcal.com/event/2980726)
-2/23 | [Flex dashboards](http://rmarkdown.rstudio.com/flexdashboard/) | (open, how about you?) | [RSVP](http://duke.libcal.com/event/2980741)
-3/2 | [ggvis](http://ggvis.rstudio.com/) | (open, how about you?) | [RSVP](http://duke.libcal.com/event/2980747)
-3/9 | [Rmarkdown](http://rmarkdown.rstudio.com/) (knitr; slides; code-segments) | [Matt Ross](http://matthewrvross.com/)  | [RSVP](http://duke.libcal.com/event/2980749)
-3/16 | Spring Break, though... | (open, how about you?) | &nbsp; 
-3/23 | [twitteR](https://www.r-bloggers.com/search/Twitter/) | [John](https://github.com/libjohn)  | [RSVP](http://duke.libcal.com/event/2980750)
-3/30 | TBA - propose something.  R Notebooks, maybe? | (open, how about you?) | &nbsp; 
+| Date  | Topic      | Presenter | Registration Link | Location
+| ----- | ---------- | --------- |:-----------------:| --------
+1/26 | [Leaflet](https://rstudio.github.io/leaflet/) | [Jena](https://github.com/jlhapp) | [RSVP](http://duke.libcal.com/event/2980715) | Perkins 217
+2/2 | [Rvest](https://blog.rstudio.org/2014/11/24/rvest-easy-web-scraping-with-r/) & [httR](https://github.com/hadley/httr/) (Web Scraping) |  [John](https://github.com/libjohn) | [RSVP](http://duke.libcal.com/event/2980717) | Murthy Studio
+2/9 | [ggplot2](http://ggplot2.org/) | [Angela](https://github.com/amz25)  | [RSVP](http://duke.libcal.com/event/2980722) | Perkins 217
+2/16 | [Shiny](http://shiny.rstudio.com/) | [Joel](https://github.com/herndonj)  | [RSVP](http://duke.libcal.com/event/2980726) | Perkins 217 
+2/23 | [Flex dashboards](http://rmarkdown.rstudio.com/flexdashboard/) | (open, how about you?) | Murthy Studio [RSVP](http://duke.libcal.com/event/2980741) | Murthy Studio
+3/2 | [ggvis](http://ggvis.rstudio.com/) | (open, how about you?) | [RSVP](http://duke.libcal.com/event/2980747) | Murthy Studio
+3/9 | [Rmarkdown](http://rmarkdown.rstudio.com/) (knitr; slides; code-segments) | [Matt Ross](http://matthewrvross.com/)  | [RSVP](http://duke.libcal.com/event/2980749) | Perkins 217
+3/16 | Spring Break, though... | (open, how about you?) | &nbsp; | 
+3/23 | [twitteR](https://www.r-bloggers.com/search/Twitter/) | [John](https://github.com/libjohn)  | [RSVP](http://duke.libcal.com/event/2980750) | Murthy Studio 
+3/30 | TBA - propose something.  R Notebooks, maybe? | (open, how about you?) | &nbsp; | 
 
 ## Format
 Presenters are asked to speak for approximately 30 minutes; think lightning talks.  Leave time for questions and discussion.  Scope should be about R, R packages, RStudio and/or the Tidyverse with respect to Data Science, Data Analytics, Statistical Sciences and/or Big Data.   The following framework is encouraged:  
