@@ -6,7 +6,7 @@ This Spring the Data & Visualization Services Department will host a series of c
 
 ## Who:  R enthusiasts, beginngers through advanced <br>Sponsored by the [Data & Visualization Services Department](http://library.duke.edu/data) 
 
-## Where:  [Murthy Digital Studio](http://library.duke.edu/edge/spaces)
+## Where:  [Murthy Digital Studio](http://library.duke.edu/edge/spaces) or [Perkins 217](http://libcms.oit.duke.edu/sites/default/media/django/web/media/locationguide/maps/perk_FLOOR2_8.16.jpg)
 
 ## Schedule: Spring, 2017
 Space is limited. **Please register**
