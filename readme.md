@@ -6,18 +6,18 @@ This Spring the Data & Visualization Services Department will host a series of c
 
 ## Who:  R enthusiasts, beginngers through advanced <br>Sponsored by the [Data & Visualization Services Department](http://library.duke.edu/data) 
 
-## Where:  [Perkins 217](http://libcms.oit.duke.edu/sites/default/media/django/web/media/locationguide/maps/perk_FLOOR2_8.16.jpg)
+## Where:  [Workshop Room](http://library.duke.edu/edge/spaces), The /Edge, Bostock Library
 
 ## Schedule: Spring, 2017
 Space is limited. **Please register**
 
 | Date  | Topic      | Presenter | Registration Link | Location
 | ----- | ---------- | --------- |:-----------------:| --------
-1/26 | [Leaflet](https://rstudio.github.io/leaflet/) | [Jena](https://github.com/jlhapp) | [RSVP](http://duke.libcal.com/event/2980715) | Perkins 217
-2/2 | [Rvest](https://blog.rstudio.org/2014/11/24/rvest-easy-web-scraping-with-r/) & [httR](https://github.com/hadley/httr/) (Web Scraping) |  [John](https://github.com/libjohn) | [RSVP](http://duke.libcal.com/event/2980717) | Perkins 217
-2/9 | [ggplot2](http://ggplot2.org/) | [Angela](https://github.com/amz25)  | [RSVP](http://duke.libcal.com/event/2980722) | Perkins 217
-2/16 | [Shiny](http://shiny.rstudio.com/) | [Joel](https://github.com/herndonj)  | [RSVP](http://duke.libcal.com/event/2980726) | Perkins 217 
-2/23 | [Flex dashboards](http://rmarkdown.rstudio.com/flexdashboard/) | (open, how about you?) |  [RSVP](http://duke.libcal.com/event/2980741) | Perkins 217
+1/26 | [Leaflet](https://rstudio.github.io/leaflet/) | [Jena](https://github.com/jlhapp) | [RSVP](http://duke.libcal.com/event/2980715) | [Workshop Room](http://library.duke.edu/edge/spaces)
+2/2 | [Rvest](https://blog.rstudio.org/2014/11/24/rvest-easy-web-scraping-with-r/) & [httR](https://github.com/hadley/httr/) (Web Scraping) |  [John](https://github.com/libjohn) | [RSVP](http://duke.libcal.com/event/2980717) | [Workshop Room](http://library.duke.edu/edge/spaces)
+2/9 | [ggplot2](http://ggplot2.org/) | [Angela](https://github.com/amz25)  | [RSVP](http://duke.libcal.com/event/2980722) | [Workshop Room](http://library.duke.edu/edge/spaces)
+2/16 | [Shiny](http://shiny.rstudio.com/) | [Joel](https://github.com/herndonj)  | [RSVP](http://duke.libcal.com/event/2980726) | [Workshop Room](http://library.duke.edu/edge/spaces) 
+2/23 | [Flex dashboards](http://rmarkdown.rstudio.com/flexdashboard/) | (open, how about you?) |  [RSVP](http://duke.libcal.com/event/2980741) | [Workshop Room](http://library.duke.edu/edge/spaces)
 3/2 | [ggvis](http://ggvis.rstudio.com/) | (open, how about you?) | [RSVP](http://duke.libcal.com/event/2980747) | Perkins 217 
 3/9 | [Rmarkdown](http://rmarkdown.rstudio.com/) (knitr; slides; code-segments) | [Matt Ross](http://matthewrvross.com/)  | [RSVP](http://duke.libcal.com/event/2980749) | Perkins 217
 3/16 | Spring Break, though... | (open, how about you?) | &nbsp; | 
