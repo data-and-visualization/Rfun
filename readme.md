@@ -11,9 +11,9 @@ This Spring the Data & Visualization Services Department will host a series of c
 ## Schedule: Spring, 2017
 Space is limited. **Please register**
 
-| Date  | Topic      | Presenter | Registration Link | Location
-| ----- | ---------- | --------- |:-----------------:| --------
-1/26 | [Leaflet](https://rstudio.github.io/leaflet/) | [Jena](https://github.com/jlhapp) | [RSVP](http://duke.libcal.com/event/2980715) | [Workshop Room](http://library.duke.edu/edge/spaces)
+| Date  | Topic      | Presenter | Registration Link | Location | Video 
+| ----- | ---------- | --------- |:-----------------:| -------- | -----
+1/26 | [Leaflet](https://rstudio.github.io/leaflet/) | [Jena](https://github.com/jlhapp) | [RSVP](http://duke.libcal.com/event/2980715) | [Workshop Room](http://library.duke.edu/edge/spaces) | [Leaflet](http://library.capture.duke.edu/Panopto/Pages/Viewer.aspx?id=c636aa87-4f3f-4278-a71f-1acd26d8cda7)
 2/2 | [Rvest](https://blog.rstudio.org/2014/11/24/rvest-easy-web-scraping-with-r/) & [httR](https://github.com/hadley/httr/) (Web Scraping) |  [John](https://github.com/libjohn) | [RSVP](http://duke.libcal.com/event/2980717) | [Workshop Room](http://library.duke.edu/edge/spaces)
 2/9 | [ggplot2](http://ggplot2.org/) | [Angela](https://github.com/amz25)  | [RSVP](http://duke.libcal.com/event/2980722) | [Workshop Room](http://library.duke.edu/edge/spaces)
 2/16 | [Shiny](http://shiny.rstudio.com/) | [Joel](https://github.com/herndonj)  | [RSVP](http://duke.libcal.com/event/2980726) | [Workshop Room](http://library.duke.edu/edge/spaces) 
