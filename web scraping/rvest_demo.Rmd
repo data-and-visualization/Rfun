@@ -1,0 +1,57 @@
+---
+title: "rvest demo"
+author: "John Little"
+output: html_notebook
+---
+
+```{r}
+# Inspired by
+# http://notesofdabbler.github.io/201408_hotelReview/scrapeTripAdvisor.html
+
+# library(rvest)
+# library(dplyr)
+
+url <- "https://www.tripadvisor.com/Hotel_Review-g49092-d8470160-Reviews-The_Durham_Hotel-Durham_North_Carolina.html"
+
+reviews <- url %>%
+  read_html() %>%
+  html_nodes("#REVIEWS .innerBubble")
+
+id <- reviews %>%
+  html_node(".quote a") %>%
+  html_attr("id")
+
+quote <- reviews %>%
+  html_node(".quote span") %>%
+  html_text()
+
+rating <- reviews %>%
+  html_node(".rating .ui_bubble_rating") %>%
+  html_attrs() %>% 
+  gsub("ui_bubble_rating bubble_", "", .) %>%
+  as.integer() / 10
+
+date <- reviews %>%
+  html_node(".rating .ratingDate") %>%
+  html_attr("title") %>%
+  strptime("%b %d, %Y") %>%
+  as.POSIXct()
+
+review <- reviews %>%
+  html_node(".entry .partial_entry") %>%
+  html_text()
+
+dhotel <- data.frame(id, quote, rating, date, review, stringsAsFactors = FALSE) 
+
+dhotel
+```
+
+```{r}
+summary(dhotel$rating)
+```
+
+```{r}
+dhotel %>% 
+  
+```
+
