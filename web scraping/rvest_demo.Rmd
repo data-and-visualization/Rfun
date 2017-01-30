@@ -1,6 +1,7 @@
 ---
 title: "rvest demo"
 author: "John Little"
+date: "`r Sys.Date()`"
 output: html_notebook
 ---
 
@@ -8,8 +9,8 @@ output: html_notebook
 # Inspired by
 # http://notesofdabbler.github.io/201408_hotelReview/scrapeTripAdvisor.html
 
-# library(rvest)
-# library(dplyr)
+library(rvest)
+library(dplyr)
 
 url <- "https://www.tripadvisor.com/Hotel_Review-g49092-d8470160-Reviews-The_Durham_Hotel-Durham_North_Carolina.html"
 
@@ -52,6 +53,33 @@ summary(dhotel$rating)
 
 ```{r}
 dhotel %>% 
-  
+  group_by(rating) %>% 
+  summarise(count = n())
+```
+
+
+
+```{r}
+loc <- url %>%
+  read_html() %>%
+  html_nodes("#REVIEWS .location")
+
+location <- loc %>% 
+  html_text()
+
+location
+```
+
+
+## Star Wars
+
+```{r}
+CarrieFisherWiki <- "https://en.wikipedia.org/wiki/Carrie_Fisher"
+
+CarrieFisherWiki %>% 
+  read_html() %>% 
+  html_node(".wikitable") %>% 
+  html_table()
+
 ```
 
