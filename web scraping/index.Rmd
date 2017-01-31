@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## rvest & httr
 
-- [Slides](http://libjohn.github.io/rfun-scrape/slides/)
+- [Slides](http://libjohn.github.io/rfun-scrape/slides/slides.html)
 
 - [Demonstration](http://libjohn.github.io/rfun-scrape/rvest_demo.nb.html)
 
