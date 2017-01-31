@@ -215,7 +215,7 @@ exclude: true
 
 - rvest 
 
-    - rvest helps you scrape information from web pages. It is designed to work with magrittr to make it easy to express common web scraping tasks, inspired by libraries like beautiful soup.
+    - Scrape information from web pages. Designed to work with **magrittr**; works well in a tidyverse. Inspired by libraries like **beautiful soup**.
 
 - httr  
 
@@ -258,13 +258,17 @@ exclude: true
 
 - [rvest intro](https://blog.rstudio.org/2014/11/24/rvest-easy-web-scraping-with-r/)
 
-- rvest live demos:  demo(package = "rvest")
+- rvest live demos:  `demo(package = "rvest")`
 
-    - demo(tripadvisor, package = "rvest")
+    - `demo(tripadvisor, package = "rvest")`
     
 - [httr quickstart](https://cran.r-project.org/web/packages/httr/vignettes/quickstart.html)
 
 - [HTTP protocol - demystified](https://code.tutsplus.com/tutorials/http-the-protocol-every-web-developer-must-know-part-1--net-31177)
+
+- [HTML on Lynda.com](https://www.lynda.com/HTML-tutorials/HTML5-Structure-Syntax-Semantics/182177-2.html) -- ([Access Lynda.com for Duke](https://oit.duke.edu/what-we-do/applications/lyndacom))
+
+- [CSS Tutorial](http://flukeout.github.io/)
 
 ---
 
@@ -277,15 +281,19 @@ exclude: true
 
 ---
 
-## Image Credits
+## Credits
+
+### Content
+
+The content for this slide deck is influenced by items noted in the Resources slide (above) and packages mentioned on the Resources slide (above)
+
+### Images
 
 - [API schematic](https://moz.com/blog/apis-for-datadriven-marketers)
 - [Client / Server](https://commons.wikimedia.org/wiki/File:Client-server-model.svg)
 - [URL](https://commons.wikimedia.org/wiki/File:Uniform_Resource_Locator_%28URL%29_example.PNG)
 - [Good human handshake](http://giphy.com/gifs/thomas-U2XboRuN89Idi)
 - [happy parsed dance](http://giphy.com/gifs/80s-1980s-thomas-dolby-wCKmBd7oNtA4g)
-
-
 - [NASA animated GIF](http://i.giphy.com/l2Jht4lIfEQfJ3zj2.gif)     
 
 ---
