@@ -215,7 +215,7 @@ exclude: true
 
 - rvest 
 
-    - The aim of httr is to provide a wrapper for the curl package, customised to the demands of modern web APIs.
+    - rvest helps you scrape information from web pages. It is designed to work with magrittr to make it easy to express common web scraping tasks, inspired by libraries like beautiful soup.
 
 - httr  
 
@@ -239,7 +239,9 @@ exclude: true
 *People who do Web Scraping in R use...*
 
 - [httr](https://cran.r-project.org/web/packages/httr/)
+
 - [rvest](https://github.com/hadley/rvest)
+
 - [jsonlite](https://cran.r-project.org/web/packages/jsonlite)
 
 *People who use rvest, use...*
@@ -250,7 +252,7 @@ exclude: true
 
 ## Resources 
 
-- [Extracting Data from the Web Part 1](https://www.rstudio.com/resources/webinars/extracting-data-from-the-web-part-1/). RStudio Webinar Video
+- [Extracting Data from the Web Part 1](https://www.rstudio.com/resources/webinars/extracting-data-from-the-web-part-1/) -- RStudio Webinar Video
 
 - [jsonlite API intro](https://libjohn.github.com/rfun-scrape/slides.html)
 
@@ -272,11 +274,6 @@ exclude: true
     - [IMDB Most Popular](http://www.imdb.com/year/1976/)
 - http://www.omdbapi.com/
 - http://anapioficeandfire.com/
-
---
-
-https://blog.rstudio.org/2014/11/24/rvest-easy-web-scraping-with-r/
-
 
 ---
 
