@@ -1,0 +1,165 @@
+---
+title: "rvest demo"
+author: "John Little"
+date: "`r Sys.Date()`"
+output: 
+  html_notebook:
+    toc: yes
+    toc_float: yes
+---
+
+## Load packages
+```{r, message=FALSE, warning=FALSE}
+library(rvest)
+library(ggvis)
+library(tidyverse)
+```
+
+
+## Demonstration
+
+Use rvest to scrape tripadvisor.com
+
+Inspired by
+
+- http://notesofdabbler.github.io/201408_hotelReview/scrapeTripAdvisor.html
+- `demo(tripadvisor, package = "rvest")`
+
+---
+
+## Star Wars
+
+Goal:  Scrape the first table on the [Carrie Fisher Wikipedia page](https://en.wikipedia.org/wiki/Carrie_Fisher)
+
+```{r}
+CarrieFisherWiki <- "https://en.wikipedia.org/wiki/Carrie_Fisher"
+
+CarrieFisherWiki %>% 
+  read_html() %>% 
+  html_node(".wikitable") %>% 
+  html_table()
+
+```
+
+## The Durham Hotel
+
+### html_nodes
+
+Read the HTML for [_The Durham Hotel_ review on TripAdvisor](https://www.tripadvisor.com/Hotel_Review-g49092-d8470160-Reviews-The_Durham_Hotel-Durham_North_Carolina.html)
+```{r}
+url <- "https://www.tripadvisor.com/Hotel_Review-g49092-d8470160-Reviews-The_Durham_Hotel-Durham_North_Carolina.html"
+
+reviews <- url %>%
+  read_html() %>%
+  html_nodes("#REVIEWS .innerBubble")
+```
+
+---
+
+### html_attr
+```{r}
+id <- reviews %>%
+  html_node(".quote a") %>%
+  html_attr("id")
+```
+
+---
+
+### html_text
+```{r}
+quote <- reviews %>%
+  html_node(".quote span") %>%
+  html_text()
+
+review <- reviews %>%
+  html_node(".entry .partial_entry") %>%
+  html_text()
+```
+
+---
+
+### Variations 
+
+Post processing
+```{r}
+
+# The rating variable is listed as an httl attribute.  Convert to a number and divide by 10.
+rating <- reviews %>%
+  html_node(".rating .ui_bubble_rating") %>%
+  html_attrs() %>% 
+  gsub("ui_bubble_rating bubble_", "", .) %>%
+  as.integer() / 10
+
+# Convert Time
+date <- reviews %>%
+  html_node(".rating .ratingDate") %>%
+  html_attr("title") %>%
+  strptime("%b %d, %Y") %>%
+  as.POSIXct()
+```
+
+---
+
+## Manipulate Data
+
+Preliminary Analysis in a Tibble (modern Data Frame)
+
+### DataFrame (Tibble)
+```{r}
+dhotel <- data_frame(id, quote, rating, date, review)
+dhotel
+```
+
+---
+
+### Summary Statistics
+```{r}
+summary(dhotel$rating)
+```
+
+---
+
+### Frequency Bar Chart
+```{r}
+dhotel %>% 
+  group_by(rating) %>% 
+  mutate(stars = factor(rating, levels = c(3, 4, 5), labels = c("Three", "Four", "Five"))) %>% 
+  ggvis(~stars) %>% 
+  layer_bars()
+```
+
+
+---
+
+### Append Variables
+
+Gather location and screen-name information. Select only reviews with a location value
+```{r}
+
+# The location information is in a different column than the review information.  It is identified by a different CSS class:  .col1of2
+memInfo <- url %>%
+  read_html() %>% 
+  html_nodes("#REVIEWS .col1of2")
+
+# Identify the Location
+loc1 <- memInfo %>% 
+  html_node(".location") %>%
+  html_text()
+
+# Identify the Screen Name
+screenName <- memInfo %>%
+  html_node(".scrname") %>% 
+  html_text()
+
+# Append the values to the original data frame, dhotel
+dhotel$scrName <- screenName
+dhotel$location <- loc1
+
+# Select variables to display
+dhotel %>% 
+  select(scrName, location, rating, quote) %>% 
+  filter(!is.na(location))
+```
+
+
+

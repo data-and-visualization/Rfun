@@ -1,0 +1,27 @@
+---
+title: "Web Scraping with R"
+subtitle: "rvest & httr @ R we having fun yet‽<br>(Feb 2, 2017)"
+author: "John Little"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## rvest & httr
+
+- [Slides](http://libjohn.github.io/rfun-scrape/slides.html)
+
+- [Demonstration](http://libjohn.github.io/rfun-scrape/rvest_demo.nb.html)
+
+---
+
+## Recording & Materials
+
+coming soon
+
+&nbsp;
+
+[Previous Workshops](http://library.duke.edu/data/news/past-workshops)
