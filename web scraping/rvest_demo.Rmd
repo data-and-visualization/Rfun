@@ -11,6 +11,7 @@ output:
 ## Load packages
 ```{r, message=FALSE, warning=FALSE}
 library(rvest)
+library(ggvis)
 library(tidyverse)
 ```
 
@@ -81,12 +82,15 @@ review <- reviews %>%
 
 Post processing
 ```{r}
+
+# The rating variable is listed as an httl attribute.  Convert to a number and divide by 10.
 rating <- reviews %>%
   html_node(".rating .ui_bubble_rating") %>%
   html_attrs() %>% 
   gsub("ui_bubble_rating bubble_", "", .) %>%
   as.integer() / 10
 
+# Convert Time
 date <- reviews %>%
   html_node(".rating .ratingDate") %>%
   html_attr("title") %>%
@@ -103,7 +107,6 @@ Preliminary Analysis in a Tibble (modern Data Frame)
 ### DataFrame (Tibble)
 ```{r}
 dhotel <- data_frame(id, quote, rating, date, review)
-
 dhotel
 ```
 
@@ -116,12 +119,15 @@ summary(dhotel$rating)
 
 ---
 
-### Frequency
+### Frequency Bar Chart
 ```{r}
 dhotel %>% 
   group_by(rating) %>% 
-  summarise(count = n())
+  mutate(stars = factor(rating, levels = c(3, 4, 5), labels = c("Three", "Four", "Five"))) %>% 
+  ggvis(~stars) %>% 
+  layer_bars()
 ```
+
 
 ---
 
@@ -129,21 +135,27 @@ dhotel %>%
 
 Gather location and screen-name information. Select only reviews with a location value
 ```{r}
+
+# The location information is in a different column than the review information.  It is identified by a different CSS class:  .col1of2
 memInfo <- url %>%
   read_html() %>% 
   html_nodes("#REVIEWS .col1of2")
 
+# Identify the Location
 loc1 <- memInfo %>% 
   html_node(".location") %>%
   html_text()
 
+# Identify the Screen Name
 screenName <- memInfo %>%
   html_node(".scrname") %>% 
   html_text()
 
+# Append the values to the original data frame, dhotel
 dhotel$scrName <- screenName
-dhotel$location <- dhotel_memInfo$loc1
+dhotel$location <- loc1
 
+# Select variables to display
 dhotel %>% 
   select(scrName, location, rating, quote) %>% 
   filter(!is.na(location))
