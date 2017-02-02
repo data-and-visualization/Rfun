@@ -14,14 +14,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 - [Slides](http://libjohn.github.io/rfun-scrape/slides.html)
 
-- [Demonstration](http://libjohn.github.io/rfun-scrape/rvest_demo.nb.html)
+- [Demonstration Notebook](http://libjohn.github.io/rfun-scrape/rvest_demo.nb.html) of rvest_demo.Rmd script
 
 ---
 
 ## Recording & Materials
 
-coming soon
-
-&nbsp;
-
-[Previous Workshops](http://library.duke.edu/data/news/past-workshops)
+<iframe height="360" width="640" src="https://warpwire.duke.edu/w/xY4BAA/" frameborder="0" scrolling="0" allowfullscreen></iframe>
