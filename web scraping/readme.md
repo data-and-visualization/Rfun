@@ -6,6 +6,6 @@
 
 - [Slides](http://libjohn.github.io/rfun-scrape/slides.html)
 
-- [Demonstration](http://libjohn.github.io/rfun-scrape/rvest_demo.nb.html)
+- [Demonstration](http://libjohn.github.io/rfun-scrape/rvest_demo.nb.html) of rvest_demo.Rmd script
 
-<iframe height="360" width="640" src="https://warpwire.duke.edu/w/xY4BAA/" frameborder="0" scrolling="0" allowfullscreen></iframe>
+- [video](https://warpwire.duke.edu/w/xY4BAA/)
