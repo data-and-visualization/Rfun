@@ -19,7 +19,7 @@ Space is limited. **Please register**
 2/16 | [Shiny](http://shiny.rstudio.com/) | [Joel](https://github.com/herndonj)  | [RSVP](http://duke.libcal.com/event/2980726) | [Workshop Room](http://library.duke.edu/edge/spaces) 
 2/23 | [Flex dashboards](http://rmarkdown.rstudio.com/flexdashboard/) | (open, how about you?) |  [RSVP](http://duke.libcal.com/event/2980741) | [Workshop Room](http://library.duke.edu/edge/spaces)
 3/2 | [ggvis](http://ggvis.rstudio.com/) | (open, how about you?) | [RSVP](http://duke.libcal.com/event/2980747) | Perkins 217 
-3/9 | [Rmarkdown](http://rmarkdown.rstudio.com/) (knitr; slides; code-segments) | [Matt Ross](http://matthewrvross.com/)  | [RSVP](http://duke.libcal.com/event/2980749) | Perkins 217
+3/9 | [Rmarkdown](http://rmarkdown.rstudio.com/) | [Matt Ross](http://matthewrvross.com/)  | [RSVP](http://duke.libcal.com/event/2980749) | Perkins 217
 3/16 | Spring Break, though... | (open, how about you?) | &nbsp; | 
 3/23 | [twitteR](https://www.r-bloggers.com/search/Twitter/) & [Rtweet](https://github.com/mkearney/rtweet/) | [John](https://github.com/libjohn)  | [RSVP](http://duke.libcal.com/event/2980750) | Perkins 217 
 3/30 | TBA - propose something.  R Notebooks, maybe? | (open, how about you?) | &nbsp; | 
