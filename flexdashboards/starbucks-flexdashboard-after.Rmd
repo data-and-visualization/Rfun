@@ -122,8 +122,8 @@ Data Table
 sharebucks <- read_csv("https://opendata.socrata.com/api/views/ddym-zvjk/rows.csv")
 
 
-starbucks  %>%  
-  filter(State == "NC") -> starbucks
+sharebucks  %>%  
+  filter(State == "NC") -> sharebucks
 
 # sharebucks <- sharebucks[ which(sharebucks$State == "NC"), ]
 
@@ -147,7 +147,7 @@ CrossWalk
 
 [Crosstalk](http://rstudio.github.io/crosstalk/using.html) makes it easy to link multiple [HTML Widgets](http://htmlwidgets.org/)
 
-```{r, eval=FALSE, include=FALSE}
+```{r leaflet-map}
 
 # shared_sharebucks <- SharedData$new(sharebucks)
 
@@ -155,14 +155,24 @@ CrossWalk
 #  datatable(sharebucks)
 
 # bscols(
-  leaflet(sharebucks) %>% addTiles() %>% addMarkers(lat = ~ Latitude, lng = ~ Longitude)
+
+sharebucks %>% 
+  select(Name, `Facility ID`, Location, lat = Latitude, lng = Longitude) -> sharebucks
+
+leaflet(sharebucks) %>% addTiles() %>% addMarkers()
+
+
+
 ```
 
-------------------------------------
 
-```{r}
+```{r datatable_sharebucks, eval=FALSE, include=FALSE}
+
+DON'T RUN  DON'T RUN DON'T RUN DON'T RUN DON'T RUN
+
   datatable(sharebucks, extensions="Scroller", style="bootstrap", class="compact", width="100%", 
             options=list(deferRender=TRUE,  scrollY=229, scroller=TRUE))
 # )
 ```
+
 

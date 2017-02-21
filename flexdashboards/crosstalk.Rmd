@@ -1,0 +1,72 @@
+---
+title: "testing crosstalk"
+author: "John Little"
+date: "February 21, 2017"
+output: html_document
+---
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)     # tidy data, includes readr
+library(leaflet)       # GIS/mapping -- An HTML Widget
+library(DT)            # DataTables provides filtering, pagination, sorting, and many other features in the tables.  An HTML Widget
+library(crosstalk)     # interactive linking between HTML widgets
+```
+
+
+## DataTable
+```{r datatable}
+
+sd <- read_csv("https://opendata.socrata.com/api/views/ddym-zvjk/rows.csv")
+
+
+sd  %>%  
+  filter(State == "NC") %>% 
+  select(Name, `Facility ID`, Location, lat = Latitude, lng = Longitude) -> sd
+
+datatable(sd)
+
+# datatable(sharebucks, extensions="Scroller", style="bootstrap", class="compact", width="100%", 
+#            options=list(deferRender=TRUE,  scrollY=300, scroller=TRUE))
+```
+
+
+## Map
+```{r leaflet map}
+
+leaflet(sd) %>% addTiles() %>% addMarkers()
+
+```
+
+## 
+
+```{r crosstalk}
+
+# sharedsd <- SharedData$new(sd)
+
+bscols(
+  leaflet(sd) %>% addTiles() %>% addMarkers(),
+  datatable(sd)
+)
+```
+
+
+  datatable(sharedsd, extensions = "Scroller", style = "bootstrap", class = "compact", width = "100%",
+            options = list(deferRender = TRUE, scrollY = 100, scroller = TRUE))
+            
+```{r}
+
+# Wrap data frame in SharedData
+sdquake <- SharedData$new(quakes[sample(nrow(quakes), 100),])
+
+# Create a filter input
+filter_slider("mag", "Magnitude", sdquake, column=~mag, step=0.1, width=250)
+
+# Use SharedData like a dataframe with Crosstalk-enabled widgets
+bscols(
+  leaflet(sdquake) %>% addTiles() %>% addMarkers(),
+  datatable(sdquake, extensions="Scroller", style="bootstrap", class="compact", width="100%",
+    options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))
+)
+```
+
+
