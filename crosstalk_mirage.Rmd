@@ -1,0 +1,85 @@
+---
+title: "crosstalk_mirage"
+author: "John Little"
+date: "February 22, 2017"
+output: html_document
+---
+
+## DataTable
+```{r datatable}
+
+sd <- read_csv("https://opendata.socrata.com/api/views/ddym-zvjk/rows.csv")
+
+
+sd  %>%  
+  filter(State == "NC") %>% 
+  select(Name, `Facility ID`, Location, lat = Latitude, lng = Longitude) -> sd
+
+datatable(sd)
+
+# datatable(sharebucks, extensions="Scroller", style="bootstrap", class="compact", width="100%", 
+#            options=list(deferRender=TRUE,  scrollY=300, scroller=TRUE))
+```
+
+
+## Map
+```{r leaflet map}
+
+leaflet(sd) %>% addTiles() %>% addMarkers()
+
+```
+
+## 
+
+```{r crosstalk, eval=FALSE, include=FALSE}
+
+DON'T RUN DOEN'T RUN - DISABLED CHUNK
+
+sharedsd <- SharedData$new(sd)
+
+bscols(
+  leaflet(sharedsd) %>% addTiles() %>% addMarkers(),
+  datatable(sharedsd)
+)
+```
+
+
+  datatable(sharedsd, extensions = "Scroller", style = "bootstrap", class = "compact", width = "100%",
+            options = list(deferRender = TRUE, scrollY = 100, scroller = TRUE))
+
+
+## DT Example from crosstalk mainpage
+```{r}
+
+# Wrap data frame in SharedData
+sdquake <- SharedData$new(quakes[sample(nrow(quakes), 100),])
+
+# Create a filter input
+filter_slider("mag", "Magnitude", sdquake, column=~mag, step=0.1, width=250)
+
+# Use SharedData like a dataframe with Crosstalk-enabled widgets
+bscols(
+  leaflet(sdquake) %>% addTiles() %>% addMarkers(),
+  datatable(sdquake, extensions="Scroller", style="bootstrap", class="compact", width="100%",
+    options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))
+)
+```
+
+
+
+
+```{r}
+# Wrap data frame in SharedData
+sd <- SharedData$new(quakes[sample(nrow(quakes), 100),])
+
+# Create a filter input
+filter_slider("mag", "Magnitude", sd, column=~mag, step=0.1, width=250)
+
+# Use SharedData like a dataframe with Crosstalk-enabled widgets
+bscols(
+  leaflet(sd) %>% addTiles() %>% addMarkers(),
+  datatable(sd, extensions="Scroller", style="bootstrap", class="compact", width="100%",
+    options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))
+)
+```
+

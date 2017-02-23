@@ -1,44 +1,47 @@
 ---
-title: "testing crosstalk"
-author: "John Little"
-date: "February 21, 2017"
-output: html_document
+title: "CrossTalk Example"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    vertical_layout: fill
 ---
 
-```{r, message=FALSE, warning=FALSE}
+```{r setup, include=FALSE}
+library(flexdashboard)
 library(tidyverse)     # tidy data, includes readr
 library(leaflet)       # GIS/mapping -- An HTML Widget
 library(DT)            # DataTables provides filtering, pagination, sorting, and many other features in the tables.  An HTML Widget
 library(crosstalk)     # interactive linking between HTML widgets
-```
 
+starbucks <- read_csv("https://opendata.socrata.com/api/views/ddym-zvjk/rows.csv")
 
-
-## TEST HERE
-```{r}
-
-sharebucks <- read_csv("https://opendata.socrata.com/api/views/ddym-zvjk/rows.csv")
-
-sharebucks %>% 
+starbucks %>% 
   filter(State == "NC") %>% 
   select(Name, City, Location, `Facility ID`, lat = Latitude, lng = Longitude) -> sharebucks
 
 sharebucks <- SharedData$new(sharebucks)
 ```
 
-bscols(
-  leaflet(sharebucks) %>% addTiles() %>% addMarkers(),
-  datatable(sharebucks, extensions="Scroller", style="bootstrap", class="compact", width="100%",
-    options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))
-)
+Column 
+-----------------------------------------------------------------------
 
-
+### Map
 
 ```{r}
-leaflet(sharebucks) %>% addTiles() %>% addMarkers()
+# leaflet(sharebucks) %>% addTiles() %>% addMarkers()
 
-datatable(sharebucks, extensions="Scroller", style="bootstrap", class="compact", width="100%",
-    options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))
-
+leaflet(sharebucks) %>% 
+  addTiles() %>% 
+  setView(-78.8310, 35.9867, zoom = 10) %>% 
+  addMarkers(popup = sharebucks$Name)
 ```
 
+Column 
+-----------------------------------------------------------------------
+
+### DataTable
+
+```{r}
+datatable(sharebucks, extensions="Scroller", style="bootstrap", class="compact", width="100%",
+    options=list(deferRender=TRUE, scrollY=300, scroller=TRUE))
+```

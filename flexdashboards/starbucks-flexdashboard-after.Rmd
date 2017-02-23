@@ -140,39 +140,6 @@ datatable(sharebucks, extensions="Scroller", style="bootstrap", class="compact",
             options=list(deferRender=TRUE,  scrollY=300, scroller=TRUE))
 ```
 
-CrossWalk
-===================================================
 
-### Crosswalk Example / Testing
-
-[Crosstalk](http://rstudio.github.io/crosstalk/using.html) makes it easy to link multiple [HTML Widgets](http://htmlwidgets.org/)
-
-```{r leaflet-map}
-
-# shared_sharebucks <- SharedData$new(sharebucks)
-
-# leaflet(sharebucks) %>% addTiles() %>% addMarkers()
-#  datatable(sharebucks)
-
-# bscols(
-
-sharebucks %>% 
-  select(Name, `Facility ID`, Location, lat = Latitude, lng = Longitude) -> sharebucks
-
-leaflet(sharebucks) %>% addTiles() %>% addMarkers()
-
-
-
-```
-
-
-```{r datatable_sharebucks, eval=FALSE, include=FALSE}
-
-DON'T RUN  DON'T RUN DON'T RUN DON'T RUN DON'T RUN
-
-  datatable(sharebucks, extensions="Scroller", style="bootstrap", class="compact", width="100%", 
-            options=list(deferRender=TRUE,  scrollY=229, scroller=TRUE))
-# )
-```
 
 
