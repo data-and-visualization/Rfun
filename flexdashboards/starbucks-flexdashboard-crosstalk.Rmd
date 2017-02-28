@@ -27,6 +27,8 @@ Column
 
 ### Map
 
+Please note that I ran into **bugs** compiling this example on a **Windows** platform.  It all **worked fine in the docker** instance, a **linux** platform.  As near as I can determine the problem lies with how the leaflet package works on windows.  Thus, on *windows* I rolled back to *leaflet* **version 1.0.1**.  When I did that, leaflet worked fine again but I could not compile a crosstalk example on Windows.
+
 ```{r}
 # leaflet(sharebucks) %>% addTiles() %>% addMarkers()
 

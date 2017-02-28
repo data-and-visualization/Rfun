@@ -1,0 +1,40 @@
+---
+title: "super dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+this explains the impact and explanatory chart A
+
+```{r}
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+> be sure to install the leaflet packgage from github
+
+```{r}
+# create leaflet map
+```
+
+### Chart C
+
+```{r}
+
+```
+

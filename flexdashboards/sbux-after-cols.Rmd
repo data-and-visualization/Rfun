@@ -40,7 +40,7 @@ Column {data-width=650 .tabset .tabset-fade}
 ```{r}
 leaflet() %>% 
   addTiles() %>% 
-  setView(-78.8310, 35.9867, zoom = 10) %>% 
+  setView(-78.8599, 35.8957, zoom = 10) %>% 
   addMarkers(data = starbucks, lat = ~ Latitude, lng = ~ Longitude, popup = starbucks$Name)
 ```
 
@@ -139,7 +139,4 @@ sharebucks  %>%
 datatable(sharebucks, extensions="Scroller", style="bootstrap", class="compact", width="100%", 
             options=list(deferRender=TRUE,  scrollY=300, scroller=TRUE))
 ```
-
-
-
 
