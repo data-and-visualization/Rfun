@@ -44,7 +44,7 @@ listed in roughly the correct order as presented.  Or see [GitHub](https://githu
 
 - Dashboard - first attempt (columns):  [sbux-after-cols](sbux-after-cols.html)
 
-- Dashboard - columns converted to rows: [sbux-after-rows](sbux-after-rows.Rmd.html)
+- Dashboard - columns converted to rows: [sbux-after-rows](sbux-after-rows.html)
 
 - Simple to convert html_document to dashboard in the YAML header:  [starbucks-before](sbux-after-cols.html)
 
