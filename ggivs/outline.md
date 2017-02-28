@@ -13,9 +13,14 @@
 ## Impressions
 
 - Very similar to ggplot2
+    - layers
+        - data
+        - geom
+        - coordinate system
+    - a transferrable trainnig for ggplot2
 
 - easier to learn if you are into the tidyverse
-    - same syntax, pipes `%M%`
+    - same syntax, pipes `%>%`
     - generates basic plots
     - see cookbook
     
@@ -29,6 +34,8 @@
     - version 0.4.3
     
 But, very capable, quick, good for development, great for casual vis and can be fine for formal vis
+
+- http://ggvis.rstudio.com/cookbook.html#scatterplots
 
 - add boxplots
     - mtcars %>% ggvis(~factor(cyl), ~mpg) %>% layer_boxplots()
