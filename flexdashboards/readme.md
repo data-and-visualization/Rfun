@@ -32,8 +32,7 @@ A presentation for R we having fun yet‽ by John Little
 
 ## Files
 
-found in [the subdir of the repo](https://github.com/libjohn/Rfun/tree/master/flexdashboards)
-listed in roughly the correct order as presented
+The supporting files are found in [the subdir of the repo](https://github.com/libjohn/Rfun/tree/master/flexdashboards).  They are listed (below) in roughly the correct order as presented.
 
 - Dashboard - first attempt (columns):  sbux-after-cols.Rmd
 
