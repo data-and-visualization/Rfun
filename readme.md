@@ -17,12 +17,11 @@ Space is limited. **Please register**
 2/2 | [Rvest](https://blog.rstudio.org/2014/11/24/rvest-easy-web-scraping-with-r/) & [httR](https://github.com/hadley/httr/) (Web Scraping) |  [John](https://github.com/libjohn) | [RSVP](http://duke.libcal.com/event/2980717) | [Workshop Room](http://library.duke.edu/edge/spaces) | [rvest video](http://library.capture.duke.edu/Panopto/Pages/Viewer.aspx?id=19bf3c7e-2b44-4939-9039-9ec98252ca50) | [rvest scripts](https://github.com/data-and-visualization/Rfun/tree/master/web%20scraping) 
 2/9 | [ggplot2](http://ggplot2.org/) | [Angela](https://github.com/amz25)  | [RSVP](http://duke.libcal.com/event/2980722) | [Workshop Room](http://library.duke.edu/edge/spaces) | [ggplot2 Video](http://library.capture.duke.edu/Panopto/Pages/Viewer.aspx?id=dc3b4a39-2310-4690-8040-2e0192c31707) | [ggplot2 Slides](http://rpubs.com/amz25/rfun-ggplot2)
 2/16 | [Shiny](http://shiny.rstudio.com/) | [Joel](https://github.com/herndonj)  | [RSVP](http://duke.libcal.com/event/2980726) | [Workshop Room](http://library.duke.edu/edge/spaces) | | [Shiny Slides] (http://bit.ly/rfunShiny)
-2/23 | [Flex dashboards](http://rmarkdown.rstudio.com/flexdashboard/) | (open, how about you?) |  [RSVP](http://duke.libcal.com/event/2980741) | [Workshop Room](http://library.duke.edu/edge/spaces) | [Flexdashboard Video](http://library.capture.duke.edu/Panopto/Pages/Viewer.aspx?id=3e301f74-332a-403f-a0f8-b41e19d2822f) | Coming soon...
-3/2 | [ggvis](http://ggvis.rstudio.com/) | (open, how about you?) | [RSVP](http://duke.libcal.com/event/2980747) | Perkins 217 
+2/23 | [Flex dashboards](http://rmarkdown.rstudio.com/flexdashboard/) | [John](https://libjohn.github.io) |  [RSVP](http://duke.libcal.com/event/2980741) | [Workshop Room](http://library.duke.edu/edge/spaces) | [Flexdashboard Video](http://library.capture.duke.edu/Panopto/Pages/Viewer.aspx?id=3e301f74-332a-403f-a0f8-b41e19d2822f) | [Files](flexdashboards/)
+3/2 | [ggvis](http://ggvis.rstudio.com/) | [John](https://libjohn.github.io) | [RSVP](http://duke.libcal.com/event/2980747) | Perkins 217 
 3/9 | [Rmarkdown](http://rmarkdown.rstudio.com/) | [Matt Ross](http://matthewrvross.com/)  | [RSVP](http://duke.libcal.com/event/2980749) | Perkins 217
-3/16 | Spring Break, though... | (open, how about you?) | &nbsp; | 
+3/16 | Spring Break | 
 3/23 | [twitteR](https://www.r-bloggers.com/search/Twitter/) & [Rtweet](https://github.com/mkearney/rtweet/) | [John](https://github.com/libjohn)  | [RSVP](http://duke.libcal.com/event/2980750) | Perkins 217 
-3/30 | TBA - propose something.  R Notebooks, maybe? | (open, how about you?) | &nbsp; | 
 
 ## Format
 Presenters are asked to speak for approximately 30 minutes; think lightning talks.  Leave time for questions and discussion.  Scope should be about R, R packages, RStudio and/or the Tidyverse with respect to Data Science, Data Analytics, Statistical Sciences and/or Big Data.   The following framework is encouraged:  

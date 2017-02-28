@@ -1,0 +1,142 @@
+---
+title: "Starbucks in NC"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    navbar:
+      - {title: "SBUX", href: "http://starbucks.com"}
+    social: ["menu"]
+    source_code: embed
+---
+
+Page 1
+=====================================================================
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+```{r loadDataETC, include=FALSE}
+library(tidyverse)     # tidy data, includes readr
+library(leaflet)       # GIS/mapping -- An HTML Widget
+library(DT)            # DataTables provides filtering, pagination, sorting, and many other features in the tables.  An HTML Widget
+library(crosstalk)     # interactive linking between HTML widgets
+```
+
+```{r, include=FALSE}
+starbucks <- read_csv("https://opendata.socrata.com/api/views/ddym-zvjk/rows.csv")
+
+starbucks  %>%  
+  filter(State == "NC") -> starbucks
+```
+
+
+Column {data-width=650 .tabset .tabset-fade}
+-----------------------------------------------------------------------
+
+### Starbucks - Where are You?
+
+```{r}
+leaflet() %>% 
+  addTiles() %>% 
+  setView(-78.8599, 35.8957, zoom = 10) %>% 
+  addMarkers(data = starbucks, lat = ~ Latitude, lng = ~ Longitude, popup = starbucks$Name)
+```
+
+### Addresses and Phone Numbers
+```{r}
+starbucks  %>%  
+  filter(State == "NC") %>% 
+  select(Name, `Phone Number`, `Street Address`, City) %>% 
+  datatable()
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Number of Raleigh Stores
+
+```{r}
+starbucks %>% 
+  filter(City == "Raleigh") %>% 
+  count() -> TotNum
+
+ 
+
+gauge(as.numeric(TotNum), min = 0, max = 40, 
+        gaugeSectors(success = c(16,29), warning = c(0,15), danger = c(30,40)))
+```
+  
+### Example Warning
+```{r}
+gauge(14, min = 0, max = 40, 
+        gaugeSectors(success = c(16,29), warning = c(0,15), danger = c(30,40)))
+```
+
+
+### Example Danger
+```{r}
+gauge(37, min = 0, max = 40, 
+        gaugeSectors(success = c(16,29), warning = c(0,15), danger = c(30,40)))
+```
+
+
+### Durham
+
+```{r vbox Durham}
+starbucks  %>%  
+  filter(City == "Durham") %>% 
+  count() %>% 
+  valueBox(icon = "fa-coffee", "Durham", "#003366" )
+```
+
+
+### Chapel Hill
+
+```{r vbox-CH}
+starbucks  %>%  
+  filter(City == "Chapel Hill") %>% 
+  count() %>% 
+  valueBox(icon = "fa-coffee" )
+```
+
+
+### Cary
+
+```{r vbox-cary}
+starbucks  %>%  
+  filter(City == "Cary") %>% 
+  count() %>% 
+  valueBox(icon = "fa-coffee", "Cary", "#707a00" )
+```
+
+
+Data Table
+==============================================================
+
+### Starbucks in NC
+
+```{r SB-data-table}
+
+sharebucks <- read_csv("https://opendata.socrata.com/api/views/ddym-zvjk/rows.csv")
+
+
+sharebucks  %>%  
+  filter(State == "NC") -> sharebucks
+
+# sharebucks <- sharebucks[ which(sharebucks$State == "NC"), ]
+
+# shared_sharebucks <- SharedData$new(sharebucks)
+
+# class(sharebucks)
+# class(shared_sharebucks)
+
+# sharebucks
+# shared_sharebucks
+# datatable(sharebucks)
+
+datatable(sharebucks, extensions="Scroller", style="bootstrap", class="compact", width="100%", 
+            options=list(deferRender=TRUE,  scrollY=300, scroller=TRUE))
+```
+
