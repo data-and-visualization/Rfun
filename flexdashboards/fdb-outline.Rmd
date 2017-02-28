@@ -1,5 +1,5 @@
 ---
-title: "flexdashboards"
+title: "Flexdashboards presentation at...."
 subtitle: "R we having fun yet‽"
 author: "John Little"
 date: "`r Sys.Date()`"
@@ -40,16 +40,21 @@ http://is.gd/rfun2017
 - Shiny
 
 ## Files
-listed in roughly the correct order as presented
+listed in roughly the correct order as presented.  Or see [GitHub](https://github.com/data-and-visualization/Rfun/tree/master/flexdashboards)
 
-- Dashboard - first attempt (columns):  sbux-after-cols.Rmd
+- Dashboard - first attempt (columns):  [sbux-after-cols](sbux-after-cols.html)
 
-- Dashboard - columns converted to rows: sbux-after-rows.Rmd
+- Dashboard - columns converted to rows: [sbux-after-rows](sbux-after-rows.html)
 
-- Simple to convert html_document to dashboard in the YAML header:  starbucks-before.Rmd
+- Simple to convert html_document to dashboard in the YAML header:  [starbucks-before](sbux-after-cols.html)
 
-- Live Demo done during the presentation:  awesome-test.Rmd
+- Live Demo done during the presentation:  [awesome-test](awesome-test.html)
 
-- Crosstalk example where leaflet and DT packages work symbiotically.  Note this does not compile on Windows as of this writing.:  starbucks-flexdashboard-crosstalk.Rmd
+- Crosstalk example where leaflet and DT packages work symbiotically.  Note this does not compile on Windows as of this writing.:  [starbucks-flexdashboard-crosstalk](starbucks-flexdashboard-crosstalk.html)
+
+## Video Recording
+
+<iframe src="http://library.capture.duke.edu/Panopto/Pages/Embed.aspx?id=3e301f74-332a-403f-a0f8-b41e19d2822f&v=1" width="720" height="405" style="padding: 0px; border: 1px solid #464646;" frameborder="0"></iframe>
+
     
     
