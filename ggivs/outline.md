@@ -37,5 +37,7 @@ But, very capable, quick, good for development, great for casual vis and can be 
 
 - http://ggvis.rstudio.com/cookbook.html#scatterplots
 
+- http://rpubs.com/amz25/rfun-ggplot2
+
 - add boxplots
     - mtcars %>% ggvis(~factor(cyl), ~mpg) %>% layer_boxplots()
