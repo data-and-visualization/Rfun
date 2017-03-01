@@ -1,0 +1,172 @@
+---
+title: "ggvis @ Rfun"
+author: "John Little"
+date: "`r Sys.Date()`"
+output: html_notebook
+---
+
+```{r load-packages, message=FALSE}
+library(tidyverse)
+library(ggvis)
+cars <- mtcars
+```
+
+
+
+## Visualization with ggvis
+
+When in the data exploratory phase, you can quickly generate very basic visualizations with minimal effort.  Your visualizations then appear in the Viewer Pane.  
+
+### Scatter Plot
+Linear model and 95% confidence interval
+```{r ggvis-scatter}
+cars %>% 
+  ggvis(~wt, ~mpg) %>% 
+  layer_points() %>% 
+  layer_model_predictions(model = "lm", se=TRUE)
+```
+[More information on ggvis scatterplots](http://ggvis.rstudio.com/cookbook.html#scatterplots)
+
+### Bar Graph
+```{r ggvis-bargraph}
+cars %>% 
+  mutate(cyl = factor(cyl, labels = c("four","six","eight"))) %>% 
+  ggvis(~cyl) %>% 
+  layer_bars()
+```
+[More information on ggvis bar graphs](http://ggvis.rstudio.com/cookbook.html#bar-graphs)
+
+### Histogram
+```{r ggvis-hist, message=FALSE}
+cars %>% 
+  ggvis(~mpg) %>% 
+  layer_histograms()
+```
+[More information on ggvis histograms](http://ggvis.rstudio.com/cookbook.html#histograms)
+
+### Line graph
+```{r ggvis-line, warning=FALSE}
+cars %>% 
+  ggvis( ~wt, ~mpg) %>% 
+  group_by(cyl) %>% 
+  layer_lines(stroke = ~factor(cyl)) %>% 
+  layer_points(~wt, ~mpg, stroke := "black", fill = ~factor(cyl))
+```
+[More information on line graphs](http://ggvis.rstudio.com/cookbook.html#line-graphs)
+
+```{r ggvis-linesmooth, warning=FALSE, message=FALSE}
+cars %>% 
+  ggvis(~wt, ~mpg) %>% 
+  group_by(cyl) %>% 
+  layer_model_predictions(model="lm", se = TRUE) %>% 
+  layer_points(~wt, ~mpg, stroke := "black", fill = ~factor(cyl), size := ~hp, opacity := 0.7) 
+```
+
+### Boxplot
+```{r boxplot}
+
+cars %>% 
+  mutate(cyl = factor(cyl, labels = c("four","six","eight"))) %>% 
+  # ggvis(~factor(cyl), ~mpg) %>%
+  ggvis(~cyl, ~mpg) %>% 
+  layer_boxplots()
+
+```
+
+
+## Comparison to ggplot2
+
+### Scatterplot:  X Y axis
+```{r}
+# ggplot2
+#
+# ggplot(mpg, aes(displ, hwy)) +
+#    geom_point()
+
+#ggivs
+mpg %>% 
+  ggvis(~displ, ~hwy)
+
+```
+
+#### Color Points
+```{r}
+# ggplot2
+# ggplot(mpg, aes(displ, hwy)) +
+#    geom_point(aes(color = class))
+
+# ggvis
+mpg %>% 
+  ggvis(~displ, ~hwy) %>% 
+  layer_points(fill = ~class)
+```
+
+#### Labels
+```{r}
+# ggplot2
+# ggplot(mpg, aes(displ, hwy)) +
+#    geom_point(aes(color = class)) +
+#    labs(x = "Engine Displacement, in Liters", y="Highway Miles per Gallon")
+
+# ggvis
+mpg %>% 
+  ggvis(~displ, ~hwy) %>% 
+  layer_points(fill = ~class) %>% 
+  add_axis("x", title = "Engine Displacement, in Liters") %>%
+  add_axis("y", title = "Highway Miles per Gallon")
+```
+
+#### Size
+
+size:= 150
+```{r}
+# ggplot2
+# ggplot(mpg, aes(displ, hwy)) +
+#    geom_point(aes(color = class), size=7) +
+#    labs(x = "Engine Displacement, in Liters", y="Highway Miles per Gallon")
+
+# ggviz
+mpg %>% 
+  ggvis(~displ, ~hwy) %>% 
+  layer_points(fill = ~class, size := 150) %>% 
+  add_axis("x", title = "Engine Displacement, in Liters") %>%
+  add_axis("y", title = "Highway Miles per Gallon")
+```
+
+
+#### Opacity
+
+opacity := 0.5
+```{r}
+# ggplot2
+# ggplot(mpg, aes(displ, hwy)) +
+#    geom_point(aes(color = class), size=7, alpha=0.5) +
+#    labs(x = "Engine Displacement, in Liters", y="Highway Miles per Gallon")
+
+# ggviz
+mpg %>% 
+  ggvis(~displ, ~hwy) %>% 
+  layer_points(fill = ~class, size := 150, opacity := 0.5) %>% 
+  add_axis("x", title = "Engine Displacement, in Liters") %>%
+  add_axis("y", title = "Highway Miles per Gallon")
+```
+
+### Interactivity
+
+size := slider
+```{r}
+
+mpg %>% 
+  ggvis(~displ, ~hwy) %>% 
+  layer_points(fill = ~class, size := input_slider(10, 700, value = 75), opacity := 0.5) %>% 
+  add_axis("x", title = "Engine Displacement, in Liters") %>%
+  add_axis("y", title = "Highway Miles per Gallon")
+```
+
+
+
+#### Shareable under CC BY-NC license 
+
+Data, presentation, and handouts are shareable under [CC BY-NC license](https://creativecommons.org/licenses/by-nc/4.0/)
+
+![This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.](https://licensebuttons.net/l/by-nc/4.0/88x31.png "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License")

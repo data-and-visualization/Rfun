@@ -39,5 +39,7 @@ But, very capable, quick, good for development, great for casual vis and can be 
 
 - http://rpubs.com/amz25/rfun-ggplot2
 
-- add boxplots
-    - mtcars %>% ggvis(~factor(cyl), ~mpg) %>% layer_boxplots()
+- [Comparison - Stack Exchange](http://stats.stackexchange.com/questions/117078/for-plotting-with-r-should-i-learn-ggplot2-or-ggvis/125124#125124)
+
+- [Comparison - @ggvis v ggplot2](http://ggvis.rstudio.com/ggplot2.html)
+
