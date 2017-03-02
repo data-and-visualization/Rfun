@@ -36,6 +36,17 @@ cars %>%
 ```
 [More information on ggvis bar graphs](http://ggvis.rstudio.com/cookbook.html#bar-graphs)
 
+#### Bargraph
+managing color and sort order
+```{r}
+mpg %>% 
+  ggvis(~factor(mpg$class, levels = names(sort(table(mpg$class), decreasing = TRUE))), 
+        ~hwy, 
+        fill := "navy",
+        stroke := "black")
+```
+
+
 ### Histogram
 ```{r ggvis-hist, message=FALSE}
 cars %>% 
@@ -63,12 +74,22 @@ cars %>%
 ```
 
 ### Boxplot
-```{r boxplot}
+```{r boxplot1}
 
 cars %>% 
   mutate(cyl = factor(cyl, labels = c("four","six","eight"))) %>% 
   # ggvis(~factor(cyl), ~mpg) %>%
   ggvis(~cyl, ~mpg) %>% 
+  layer_boxplots()
+
+```
+
+
+#### BoxPlot on *mpg* dataset
+```{r boxplot}
+
+mpg %>% 
+  ggvis(~class, ~hwy) %>% 
   layer_boxplots()
 
 ```
@@ -83,10 +104,10 @@ cars %>%
 # ggplot(mpg, aes(displ, hwy)) +
 #    geom_point()
 
+
 #ggivs
 mpg %>% 
   ggvis(~displ, ~hwy)
-
 ```
 
 #### Color Points
@@ -154,7 +175,7 @@ mpg %>%
 ### Interactivity
 
 size := slider
-```{r}
+```{r, eval=FALSE, include=FALSE}
 
 mpg %>% 
   ggvis(~displ, ~hwy) %>% 
