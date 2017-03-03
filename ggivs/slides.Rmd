@@ -296,8 +296,8 @@ mpg %>%
 ### Interactivity
 
 size := slider
-```{r, eval=FALSE, include=FALSE}
 
+```
 mpg %>% 
   ggvis(~displ, ~hwy) %>% 
   layer_points(fill = ~class, 
@@ -307,6 +307,8 @@ mpg %>%
   add_axis("y", title = "Highway Miles per Gallon")
 ```
 
+
+To see this output, run this in your RStudio.  The output wil be in the Viewer pane. Ideally, this interactive output is done in concert with Shiny.  learn more about itneractivity at the [ggvis-interactive documentation](http://ggvis.rstudio.com/interactivity.html).
 
 ---
 
