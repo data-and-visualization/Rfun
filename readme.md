@@ -18,7 +18,7 @@ Space is limited. **Please register**
 2/9 | [ggplot2](http://ggplot2.org/) | [Angela](https://github.com/amz25)  | [RSVP](http://duke.libcal.com/event/2980722) | [Workshop Room](http://library.duke.edu/edge/spaces) | [ggplot2 Video](http://library.capture.duke.edu/Panopto/Pages/Viewer.aspx?id=dc3b4a39-2310-4690-8040-2e0192c31707) | [ggplot2 Slides](http://rpubs.com/amz25/rfun-ggplot2)
 2/16 | [Shiny](http://shiny.rstudio.com/) | [Joel](https://github.com/herndonj)  | [RSVP](http://duke.libcal.com/event/2980726) | [Workshop Room](http://library.duke.edu/edge/spaces) | | [Shiny Slides] (http://bit.ly/rfunShiny)
 2/23 | [Flex dashboards](http://rmarkdown.rstudio.com/flexdashboard/) | [John](https://libjohn.github.io) |  [RSVP](http://duke.libcal.com/event/2980741) | [Workshop Room](http://library.duke.edu/edge/spaces) | [Flexdashboard Video](http://library.capture.duke.edu/Panopto/Pages/Viewer.aspx?id=3e301f74-332a-403f-a0f8-b41e19d2822f) | [Files](flexdashboards/)
-3/2 | [ggvis](http://ggvis.rstudio.com/) | [John](https://libjohn.github.io) | [RSVP](http://duke.libcal.com/event/2980747) | Perkins 217 
+3/2 | [ggvis](http://ggvis.rstudio.com/) | [John](https://libjohn.github.io) | [RSVP](http://duke.libcal.com/event/2980747) | Perkins 217 | Coming Soon | [ggvis slides](https://libjohn.github.io/ggvis/slides.html)
 3/9 | [Rmarkdown](http://rmarkdown.rstudio.com/) | [Matt Ross](http://matthewrvross.com/)  | [RSVP](http://duke.libcal.com/event/2980749) | Perkins 217
 3/16 | Spring Break | 
 3/23 | [twitteR](https://www.r-bloggers.com/search/Twitter/) & [Rtweet](https://github.com/mkearney/rtweet/) | [John](https://github.com/libjohn)  | [RSVP](http://duke.libcal.com/event/2980750) | Perkins 217 
