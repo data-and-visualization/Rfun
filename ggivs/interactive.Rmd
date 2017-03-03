@@ -1,0 +1,17 @@
+library(tidyverse)
+library(ggvis)
+
+
+# Interactivity
+
+mpg %>% 
+  ggvis(~displ, ~hwy) %>% 
+  layer_points(fill = ~class, size := input_slider(10, 700, value = 75), 
+               opacity := 0.5) %>% 
+  add_axis("x", title = "Engine Displacement, in Liters") %>%
+  add_axis("y", title = "Highway Miles per Gallon")
+
+
+
+
+

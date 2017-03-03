@@ -22,6 +22,10 @@ rsconnect
 .Rproj.user/
 *.Rproj
 
+# Xaringan Slides
+*/libs/*
+*.html
+
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
