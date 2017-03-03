@@ -80,10 +80,9 @@ cars %>%
 ```
 
 ---
+background-image: url(images/scatter1.svg)
 
-![scatter1](images/scatter1.svg)
-
-[More information on ggvis scatterplots](http://ggvis.rstudio.com/cookbook.html#scatterplots)
+[See Cookbook for more information on ggvis scatterplots](http://ggvis.rstudio.com/cookbook.html#scatterplots)
 
 ---
 
@@ -95,11 +94,11 @@ cars %>%
   layer_bars()
 ```
 
+---
+background-image: url(images/bar1.svg)
 
-![bar1](images/bar1.svg)
 
-
-[More information on ggvis bar graphs](http://ggvis.rstudio.com/cookbook.html#bar-graphs)
+[See Cookbook for more information on ggvis bar graphs](http://ggvis.rstudio.com/cookbook.html#bar-graphs)
 
 ---
 
@@ -116,8 +115,7 @@ mpg %>%
 ```
 
 ---
-
-![bar2](images/bar2.svg)
+background-image: url(images/bar2.svg)
 
 ---
 
@@ -130,10 +128,9 @@ cars %>%
 ```
 
 ---
+background-image: url(images/hist1.svg)
 
-![hist1](images/hist1.svg)
-
-[More information on ggvis histograms](http://ggvis.rstudio.com/cookbook.html#histograms)
+[See Cookbook for more information on ggvis histograms](http://ggvis.rstudio.com/cookbook.html#histograms)
 
 
 ---
@@ -148,11 +145,10 @@ cars %>%
 ```
 
 ---
+background-image: url(images/line1.svg)
 
-![line1](images/line1.svg)
 
-
-[More information on line graphs](http://ggvis.rstudio.com/cookbook.html#line-graphs)
+[See Cookbook for more information on line graphs](http://ggvis.rstudio.com/cookbook.html#line-graphs)
 
 ---
 
@@ -166,10 +162,7 @@ cars %>%
 ```
 
 ---
-
-![line2](images/line2.svg)
-
-
+background-image: url(images/line2.svg)
 ---
 
 
@@ -184,12 +177,14 @@ cars %>%
 ```
 
 ---
+background-image: url(images/box1.svg)
 
-![box1](images/box1.svg)
+[See Cookbook for more information on boxplots](http://ggvis.rstudio.com/cookbook.html) 
+Hint: the info is at the bottom of the page
 
 ---
 
-#### BoxPlot on *mpg* dataset
+### BoxPlot with *mpg* dataset
 ```{r boxplot}
 
 mpg %>% 
@@ -198,7 +193,8 @@ mpg %>%
 
 ```
 
-![box2](images/box2.svg)
+---
+background-image: url(images/box2.svg)
 
 ---
 
@@ -217,14 +213,22 @@ mpg %>%
 # ggplot(mpg, aes(displ, hwy)) +
 #    geom_point()
 
-
 #ggivs
 mpg %>% 
   ggvis(~displ, ~hwy)
 ```
+
+---
+background-image: url(images/mpg-scatter.svg)
+
 ---
 
-#### Color Points
+### Color Points
+
+fill = ~class
+fill = "#339999"
+fill = "red"
+
 ```{r, message=FALSE, warning=FALSE, include=TRUE}
 # ggplot2
 # ggplot(mpg, aes(displ, hwy)) +
@@ -235,10 +239,17 @@ mpg %>%
   ggvis(~displ, ~hwy) %>% 
   layer_points(fill = ~class)
 ```
+
+---
+background-image: url(images/scatter-color.svg)
+
 ---
 
-#### Labels
-```{r}
+### Labels
+
+add_axis("x", title = "foo title here")   
+
+```{r, message=FALSE, warning=FALSE, include=TRUE}
 # ggplot2
 # ggplot(mpg, aes(displ, hwy)) +
 #    geom_point(aes(color = class)) +
@@ -249,15 +260,20 @@ mpg %>%
 mpg %>% 
   ggvis(~displ, ~hwy) %>% 
   layer_points(fill = ~class) %>% 
-  add_axis("x", title = "Engine Displacement, in Liters") %>%
+  add_axis("x", title = "Engine Displacement, in Liters") %>%   
   add_axis("y", title = "Highway Miles per Gallon")
 ```
+
+
+---
+background-image: url(images/scatter-legend.svg)
+
 ---
 
-#### Size
+### Size
 
 size:= 150
-```{r}
+```{r, message=FALSE, warning=FALSE, include=TRUE}
 # ggplot2
 # ggplot(mpg, aes(displ, hwy)) +
 #    geom_point(aes(color = class), size=7) +
@@ -271,13 +287,18 @@ mpg %>%
   add_axis("x", title = "Engine Displacement, in Liters") %>%
   add_axis("y", title = "Highway Miles per Gallon")
 ```
+
+
+---
+background-image: url(images/mpg-size.svg)
+
 ---
 
 
-#### Opacity
+### Opacity
 
 opacity := 0.5
-```{r}
+```{r, message=FALSE, warning=FALSE, include=TRUE}
 # ggplot2
 # ggplot(mpg, aes(displ, hwy)) +
 #    geom_point(aes(color = class), size=7, alpha=0.5) +
@@ -291,13 +312,19 @@ mpg %>%
   add_axis("x", title = "Engine Displacement, in Liters") %>%
   add_axis("y", title = "Highway Miles per Gallon")
 ```
+
+
+---
+background-image: url(images/mpg-opacity.svg)
+
+
 ---
 
 ### Interactivity
 
-size := slider
+size := input_slider(10, 700, value = 75)
 
-```
+```{}
 mpg %>% 
   ggvis(~displ, ~hwy) %>% 
   layer_points(fill = ~class, 
@@ -308,7 +335,9 @@ mpg %>%
 ```
 
 
-To see this output, run this in your RStudio.  The output wil be in the Viewer pane. Ideally, this interactive output is done in concert with Shiny.  learn more about itneractivity at the [ggvis-interactive documentation](http://ggvis.rstudio.com/interactivity.html).
+To see this output, run this in your RStudio.  The output wil be in the Viewer pane. Ideally, this interactive output is done in concert with Shiny.  
+
+Learn more about itneractivity at the [ggvis-interactive documentation](http://ggvis.rstudio.com/interactivity.html).
 
 ---
 
