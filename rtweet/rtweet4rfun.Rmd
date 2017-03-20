@@ -1,0 +1,107 @@
+---
+title: "Rtweet"
+subtitle: "an Rfun demonstration"
+author: "John Little"
+date: '`r Sys.Date()`'
+output: html_notebook
+---
+
+## load libraries
+
+```{r libraries}
+library(rtweet)
+library(tidyverse)
+library(stringr)  
+library(tm)  #  text mining
+library(SnowballC)    # remove common word endings / Steming
+library(tidytext)
+library(wordcloud2)
+```
+
+
+## Get Tweets 
+
+search_tweets
+```{r getTweets}
+tweet_collection <- search_tweets("marchmadness", n=1000, lang = "en")
+tweet_collection
+```
+
+
+Convert data_frame$vector to Corpus
+```{r corpus2vector}
+dfCorpus <-  Corpus(VectorSource(tweet_collection$text)) 
+```
+
+
+
+## Alternative
+alternative to the "remove punctionation" (i.e. remove-stuff code chunk) above
+
+```{r tidyTheText}
+
+# make lower case
+corpus.prep <- tm_map(dfCorpus, str_to_lower)  # stringr::str_to_lower() instead of base::tolower
+
+# remove white space
+corpus.prep <- tm_map(corpus.prep, stripWhitespace) 
+
+# remove punctuation 
+corpus.prep <- tm_map(corpus.prep, removePunctuation)
+
+# remove numbers
+corpus.prep <- tm_map(corpus.prep, removeNumbers) 
+
+# head(stopwords("english"))
+
+# remove stop words 
+corpus <- tm_map(corpus.prep, removeWords, stopwords("english")) 
+
+# stem remaining words
+corpus <- tm_map(corpus, stemDocument)  # snowballC::StemDocument() 
+
+```
+
+
+## Make Term Document Matrix
+```{r}
+# dtm <- DocumentTermMatrix(docs) 
+
+dtm2 <- TermDocumentMatrix(corpus)
+m <- as.matrix(dtm2)
+v <- sort(rowSums(m),decreasing=TRUE)
+d <- data.frame(word = names(v),freq=v)
+
+d
+
+```
+
+## Wordcloud2
+```{r}
+
+wordcloud2(d, color = "random-light", backgroundColor = "orange")
+
+wordcloud2(d, size = 0.3, shape="star", backgroundColor = 'black', fontFamily="Loma")
+
+# letterCloud(d, word="TVERSE", size = 0.3, fontFamily="Loma", backgroundColor = 'black')
+
+```
+
+## Resource list
+
+- http://www.sthda.com/english/wiki/text-mining-and-word-cloud-fundamentals-in-r-5-simple-steps-you-should-know
+
+- http://antonio-ferraro.eu.pn/word-clouds-in-r-packages-wordcloud2-and-tm/
+
+- https://jrnold.github.io/qss-tidy/discovery.html#textual-data
+
+- https://rstudio-pubs-static.s3.amazonaws.com/31867_8236987cf0a8444e962ccd2aec46d9c3.html
+
+- of less use
+
+    - http://www.cookbook-r.com/Manipulating_data/Converting_between_data_frames_and_contingency_tables/
+    - https://www.r-bloggers.com/how-to-get-the-frequency-table-of-a-categorical-variable-as-a-data-frame-in-r/
+    - https://www.quora.com/How-do-I-get-a-frequency-count-based-on-two-columns-variables-in-an-R-dataframe
+    - https://www.quora.com/How-do-you-create-a-corpus-from-a-data-frame-in-R
+    
+

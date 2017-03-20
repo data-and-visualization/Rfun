@@ -1,0 +1,87 @@
+---
+title: "Retrieving Tweets"
+author: "John Little"
+date: '`r Sys.Date()`'
+output: html_notebook
+---
+
+This all comes straight from [intro vignette](https://cran.r-project.org/web/packages/rtweet/vignettes/intro.html).  See the "Retrieving Tweets" section.
+
+```{r libraries}
+library(rtweet)
+library(tidyverse)
+```
+
+
+## Get Tweets
+```{r get-tweets}
+mm_collection <- search_tweets("#marchmadness", n=1000, lang = "en")
+# class(mm_collection)
+
+```
+
+## access and preview data on the users who posted the tweets
+```{r}
+users_data(mm_collection)
+```
+
+
+## return 200 tweets from @SportsJefe81's timeline
+```{r}
+sportsChief <- get_timeline("SportsJefe81", n = 200)
+sportsChief
+```
+
+
+## extract Jeff Grabelle's user data
+```{r}
+users_data(sportsChief)
+```
+
+## stream tweets mentioning cnn for 2 minutes (120 sec)
+```{r}
+a_side <- stream_tweets("cnn", timeout = 120)
+a_side
+```
+
+## extract data on the users who posted the tweets
+```{r}
+users_data(a_side)
+```
+
+## stream 3 random samples of tweets
+```{r}
+for (i in seq_len(3)) {
+    stream_tweets(q = "", timeout = 60,
+        file_name = paste0("rtw", i), parse = FALSE)
+    if (i == 3) {
+        message("all done!")
+        break
+    } else {
+        # wait between 0 and 300 secs before next stream
+        Sys.sleep(runif(1, 0, 300))
+    }
+}
+```
+
+## Combine the three sample files
+```{r}
+
+## parse the samples
+tw <- lapply(c("rtw1.json", "rtw2.json", "rtw3.json"),
+             parse_stream)
+
+
+## collapse lists into single data frame
+tw.users <- do.call("rbind", users_data(tw))
+tw <- do.call("rbind", tw)
+attr(tw, "users") <- tw.users
+
+## preview data
+head(tw)  
+users_data(tw) %>%
+    head()
+```
+
+
+

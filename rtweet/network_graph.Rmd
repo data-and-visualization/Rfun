@@ -1,0 +1,50 @@
+---
+title: "graph Tweets"
+output: html_notebook
+---
+
+# Can use this library with rtweet to generate a network graph.  This library can also write out a file in "gephi format" forwhich Gephi can open and display
+
+```{r}
+library(graphTweets)
+library(rtweet)
+```
+
+## Get Tweets
+```{r getTweets}
+tweet_collection <- search_tweets("dukembb", n=100, lang = "en")
+tweet_collection <- tweet_collection%>% 
+  filter(is_retweet == FALSE)
+```
+
+
+## Identify Edges
+```{r}
+edges <- getEdges(data = tweet_collection, tweets = "text", source = "screen_name")
+```
+
+## Notes
+```{r}
+nodes <- getNodes(edges)
+```
+
+## prepare plot
+```{r}
+# plot
+g <- igraph::graph.data.frame(edges, directed=TRUE, vertices = nodes)
+```
+
+## Plot
+```{r}
+plot(g)
+```
+
+
+## Dynamic Graph
+```{r}
+# (data = tweet_collection, tweets = "text", source = "screen_name")
+dyn <- dynamise(data = tweet_collection, tweets = "text", source = "screen_name",
+                start.stamp = "created_at", write=TRUE, file.dir = "rtweet")
+
+```
+
