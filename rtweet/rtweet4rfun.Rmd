@@ -8,7 +8,7 @@ output: html_notebook
 
 ## load libraries
 
-```{r libraries}
+```{r libraries, warning=FALSE}
 library(rtweet)
 library(tidyverse)
 library(stringr)  
@@ -35,9 +35,7 @@ dfCorpus <-  Corpus(VectorSource(tweet_collection$text))
 
 
 
-## Alternative
-alternative to the "remove punctionation" (i.e. remove-stuff code chunk) above
-
+## Text Mining -- Data Treamtement 
 ```{r tidyTheText}
 
 # make lower case
