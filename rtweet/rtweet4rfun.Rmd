@@ -70,18 +70,19 @@ m <- as.matrix(dtm2)
 v <- sort(rowSums(m),decreasing=TRUE)
 d <- data.frame(word = names(v),freq=v)
 
-d
+d <- d %>% 
+  slice(2:100)
 
 ```
 
 ## Wordcloud2
 ```{r}
 
-wordcloud2(d, color = "random-light", backgroundColor = "orange")
+wordcloud2(d, color = "random-dark", backgroundColor = "orange")
 
-wordcloud2(d, size = 0.3, shape="star", backgroundColor = 'black', fontFamily="Loma")
+wordcloud2(d, size = 0.3, shape="star", color = "random-light", backgroundColor = 'black', fontFamily="Loma")
 
-# letterCloud(d, word="TVERSE", size = 0.3, fontFamily="Loma", backgroundColor = 'black')
+# letterCloud(d, word="R", size = 1, fontFamily="Loma", backgroundColor = 'black')
 
 ```
 

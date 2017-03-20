@@ -8,7 +8,7 @@ output: html_notebook
 
 # Preface
 
-Using the graphTweets package with the rtweet package to generate a network graph.  graphTweet can write a file in "gephi format" -- forwhich Gephi can open and display
+Using the graphTweets package with the rtweet package to generate a network graph.  graphTweet can write a file in "gephi format" -- for which Gephi can open and display
 
 ```{r}
 library(graphTweets)

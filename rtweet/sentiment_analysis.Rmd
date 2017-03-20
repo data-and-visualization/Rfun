@@ -8,7 +8,7 @@ output: html_notebook
 
 ## Visualize Sentiment Analysis of Tweets
 
-```{r}
+```{r, warning=FALSE}
 library(rtweet)
 library(tidyverse)
 library(syuzhet)  # sentiment anslysis
@@ -16,7 +16,7 @@ library(syuzhet)  # sentiment anslysis
 
 ## Get Tweets
 ```{r}
-coachk <- search_tweets("coachK", n=1000, lang = "en")
+coachk <- search_tweets("#coachK", n=1000, lang = "en")
 ```
 
 ## Sentiment Analysis Transform
