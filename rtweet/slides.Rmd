@@ -1,0 +1,272 @@
+---
+title: "rtweet for Rfun"
+subtitle: "Packages to gather and analyse tweets"
+author: "John Little"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: ["default", "duke.css"]
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: center, bottom
+background-image:  url(http://library.duke.edu/data/sites/default/files/datagis/images/data_gis_logo.png)
+
+#[is.gd/rfunsurvey2017](https://is.gd/rfunsurvey2017)
+
+---
+class: center, middle
+
+# Presentation materials availasble
+
+[Slides](//libjohn.github.io/rtweet/slides.html)
+
+[Github](//github.com/libjohn/Rfun/tree/master/rtweet)
+
+---
+class: middle, center
+
+## Twitter Stream Gathering
+
+[rtweet](https://github.com/mkearney/rtweet/)
+
+[twitteR](https://cran.r-project.org/web/packages/twitteR/)
+
+---
+class: middle, center
+background-image:  url(images/twitter-analysis.png)
+
+<!-- https://commons.wikimedia.org/wiki/File:NodeXL_Twitter_Network_Graphs_-_Occupywallstreet_(mentions_and_replies)_(BY).png -->
+
+.right-column[
+  <h2>Twitter Analysis</h2>
+]
+
+
+
+---
+## Outline
+
+- Using rtweet (a tidy way)  
+
+    - library(twitter) should also work fine
+
+- Analysis demonstrations
+
+    - WordCloud
+        - Word Freq
+        - term document matrix
+    - Sentiment Analysis
+    - Network Graphs / Network Analysis
+    - Time Series
+
+- Streaming / Scheduling / Sampling
+
+---
+class: middle, center, softblue
+## Gettting Started 
+
+[Intro Vignette](https://cran.r-project.org/web/packages/rtweet/vignettes/intro.html)
+
+
+---
+## Authentication
+
+- API
+    - https://apps.twitter.com/
+    
+- Keys and Access Tokens
+
+- Must be careful with the secret code
+    - https://mkearney.github.io/rtweet/articles/auth.html
+
+- But, my examples don't seem to require keys
+
+---
+## Gathering is Easy
+
+```{}
+search_tweets("marchmadness", n=1000, lang = "en")`
+```
+
+
+```{}
+users_data(search_tweets)
+```
+
+
+
+There are significant limitations in gathering historical data from the twitter API
+
+---
+## API Orchestration
+
+Many Tools can gather 
+
+- Easy:  https://tags.hawksey.info/
+
+- R with rtweet
+
+- Splunk 
+
+
+---
+class: softblue
+## Analysis
+
+1. Word Cloud
+
+2. Sentiment Analysis
+
+3. Network Graph Analysis
+
+4. Time Series
+
+---
+class: orange
+## Word Cloud
+
+- WordCloud2 (HTML Widget)
+
+- Requires treatment and transformations
+
+    - Term Document Matrix
+    - Text Mining
+        - lower case
+        - strip whitespace
+        - remove punctuation
+        - remove numbers
+        - remove stop words
+        - term stemming
+        
+---
+class: bottom, center
+background-image:  url(images/word-cloud.png)
+
+[Example 1](rtweet4rfun.nb.html): Search Tweets | Data Treatment | TDM | WorldCloud
+
+---
+class: orange
+## Sentiment Analysis
+
+Applied a simpler text treatment for this demonstration.
+See [Example 1](rtweet4rfun.nb.html) for a more complete treatment of data cleaning. 
+
+```{}
+iconv(TweetText, 'UTF-8', 'ASCII') -> UseableText
+```
+    
+Get sentiment
+
+```{}
+get_nrc_sentiment(UsableText)
+```
+
+
+---
+class:  bottom, center
+background-image:  url(images/sentiment_vis.png)
+
+[Example 2](sentiment_analysis.nb.html): syuzhet::get_nrc_sentiment(), plot sentiment
+
+
+---
+class: orange
+## Network Graph
+
+- `library(graphTweets)`
+
+- Transforms the document into edges and nodes
+
+- Creates a Gephi Document:  `graphTweets.graphml`
+
+&nbsp;
+
+&nbsp;
+
+- HTML Widget [DiagrammeR](https://github.com/rich-iannone/DiagrammeR) is worth investigation
+
+---
+class: bottom
+background-image: url(images/network_graph.png)
+
+1. [Example 3](network_graph.nb.html): `getEdges()` | `getNodes()` | plot
+
+2. Launch Gephi > Open Graph File > graphTweets.graphml
+
+
+---
+class: orange
+## Time Series
+
+https://cran.r-project.org/web/packages/rtweet/vignettes/stream.html
+
+
+---
+class: softblue
+## Other 
+
+### Scheduling
+
+- See the [time-series](https://cran.r-project.org/web/packages/rtweet/vignettes/stream.html) vignette
+- [taskscheduleR: schedule R scripts with Windows task manager](https://www.r-bloggers.com/taskscheduler-r-package-to-schedule-r-scripts-with-the-windows-task-manager-2/)
+
+### Analysis & Issues
+
+- Machine Learning
+
+- Implications for Social Science 
+
+### Keeping up from a tool perspective
+
+- https://www.r-bloggers.com/search/Twitter/
+
+---
+class: center, bottom
+background-image:  url(http://library.duke.edu/data/sites/default/files/datagis/images/data_gis_logo.png)
+
+#[is.gd/rfunsurvey2017](https://is.gd/rfunsurvey2017)
+
+---
+## Thank You For Attending
+
+.pull-left[
+### I am ...
+
+- John Little
+- http://libjohn.github.io
+- http://github.com/libjohn
+
+#### Schedule Me
+
+- [http:&#47;&#47;v.gd&#47;littleconsult](http://duke.libcal.com/appointment/2695)
+]
+
+.pull-right[
+### We are...
+- Data & Visualization Services
+- http://library.duke.edu/data
+- The /Edge, Bostock (1st Floor)
+
+#### Walk-in Hours
+- [Schedule](http://library.duke.edu/data/about/schedule)
+
+#### Our Workshops
+- [Current Workshops](http://library.duke.edu/data/news)
+- [Past Workshops](http://library.duke.edu/data/news/past-workshops)
+
+#### Contact Us
+- askData@Duke.edu
+]
+
+---
+class: center, middle
+## Shareable under CC BY-NC license 
+
+Data, presentation, and handouts are shareable under [CC BY-NC license](https://creativecommons.org/licenses/by-nc/4.0/)
+
+![This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.](https://licensebuttons.net/l/by-nc/4.0/88x31.png "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License")
+

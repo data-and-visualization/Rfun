@@ -1,0 +1,55 @@
+---
+title: "Graph Tweets"
+subtitle: "Generating a network graph from a twitter conversation"
+author: "John Little"
+date: '`r Sys.Date()`'
+output: html_notebook
+---
+
+# Preface
+
+Using the graphTweets package with the rtweet package to generate a network graph.  graphTweet can write a file in "gephi format" -- for which Gephi can open and display
+
+```{r}
+library(graphTweets)
+library(rtweet)
+```
+
+## Get Tweets
+```{r getTweets}
+dukmbb <- search_tweets("dukembb", n=100, lang = "en")
+dukmbb <- dukmbb%>% 
+  filter(is_retweet == FALSE)
+```
+
+
+## Identify Edges
+```{r}
+edges <- getEdges(data = dukmbb, tweets = "text", source = "screen_name")
+```
+
+## Notes
+```{r}
+nodes <- getNodes(edges)
+```
+
+## prepare plot
+```{r}
+# plot
+g <- igraph::graph.data.frame(edges, directed=TRUE, vertices = nodes)
+```
+
+## Plot
+```{r}
+plot(g)
+```
+
+
+## Dynamic Graph
+```{r}
+dynamise(data = dukmbb, tweets = "text", source = "screen_name",
+                start.stamp = "created_at", write=TRUE)
+
+```
+
+This process wrote the file "graphTweets.graphml" which can then be opened in Gephi

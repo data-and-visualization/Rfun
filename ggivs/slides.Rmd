@@ -80,9 +80,10 @@ cars %>%
 ```
 
 ---
+class: bottom, center
 background-image: url(images/scatter1.svg)
 
-[See Cookbook for more information on ggvis scatterplots](http://ggvis.rstudio.com/cookbook.html#scatterplots)
+See [cookbook for more information on ggvis scatterplots](http://ggvis.rstudio.com/cookbook.html#scatterplots)
 
 ---
 
@@ -95,10 +96,11 @@ cars %>%
 ```
 
 ---
+class: bottom, center
 background-image: url(images/bar1.svg)
 
 
-[See Cookbook for more information on ggvis bar graphs](http://ggvis.rstudio.com/cookbook.html#bar-graphs)
+See [cookbook for more information on ggvis bar graphs](http://ggvis.rstudio.com/cookbook.html#bar-graphs)
 
 ---
 
@@ -128,9 +130,10 @@ cars %>%
 ```
 
 ---
+class: bottom, center
 background-image: url(images/hist1.svg)
 
-[See Cookbook for more information on ggvis histograms](http://ggvis.rstudio.com/cookbook.html#histograms)
+See [cookbook for more information on ggvis histograms](http://ggvis.rstudio.com/cookbook.html#histograms)
 
 
 ---
@@ -145,10 +148,11 @@ cars %>%
 ```
 
 ---
+class: bottom, center
 background-image: url(images/line1.svg)
 
 
-[See Cookbook for more information on line graphs](http://ggvis.rstudio.com/cookbook.html#line-graphs)
+See [cookbook for more information on line graphs](http://ggvis.rstudio.com/cookbook.html#line-graphs)
 
 ---
 
@@ -177,9 +181,11 @@ cars %>%
 ```
 
 ---
+class: bottom, center
 background-image: url(images/box1.svg)
 
-[See Cookbook for more information on boxplots](http://ggvis.rstudio.com/cookbook.html) 
+See [cookbook for more information on boxplots](http://ggvis.rstudio.com/cookbook.html) 
+
 Hint: the info is at the bottom of the page
 
 ---
@@ -226,7 +232,9 @@ background-image: url(images/mpg-scatter.svg)
 ### Color Points
 
 fill = ~class
+
 fill = "#339999"
+
 fill = "red"
 
 ```{r, message=FALSE, warning=FALSE, include=TRUE}
@@ -340,9 +348,9 @@ To see this output, run this in your RStudio.  The output wil be in the Viewer p
 Learn more about itneractivity at the [ggvis-interactive documentation](http://ggvis.rstudio.com/interactivity.html).
 
 ---
+class: center, middle
 
-
-#### Shareable under CC BY-NC license 
+### Shareable under CC BY-NC license 
 
 Data, presentation, and handouts are shareable under [CC BY-NC license](https://creativecommons.org/licenses/by-nc/4.0/)
 

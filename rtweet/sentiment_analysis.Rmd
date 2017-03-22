@@ -1,0 +1,63 @@
+---
+title: "Sentiment Analysis"
+subtitle: "Using syuzhet as a sentiment classifer for tweets"
+author: "John Little"
+date: '`r Sys.Date()`'
+output: html_notebook
+---
+
+## Visualize Sentiment Analysis of Tweets
+
+```{r, warning=FALSE}
+library(rtweet)
+library(tidyverse)
+library(syuzhet)  # sentiment anslysis
+```
+
+## Get Tweets
+```{r}
+coachk <- search_tweets("#coachK", n=1000, lang = "en")
+```
+
+## Sentiment Analysis Transform
+```{r}
+sentiment <- (coachk$text)
+
+s_usable <- iconv(sentiment, 'UTF-8', 'ASCII')  # crude but works.  See rtweet4rfun.Rmd for a more complete treatment of data cleaning.  Or, potentially, read the syuzhet documentation (¿Never RTFM?)
+
+s_usable <- syuzhet::get_nrc_sentiment(s_usable)
+
+# subset rtweet data (for ease) and combine with sentiment data
+subsetCK <- cbind(
+  coachk[, c("status_id", "favorite_count", "retweet_count")],
+  s_usable)
+
+# transform data to long form (makes plotting easier)
+subsetCK_long <- reshape2::melt(subsetCK,
+    variable.name = "emotion",
+    value.name = "sentiment",
+    id.vars = c("status_id", "favorite_count", "retweet_count"))
+```
+
+## plot the tweets
+```{r}
+# plot using ggplot
+subsetCK_2plot <- ggplot(subsetCK_long, aes(x = emotion, y = sentiment,
+  fill = emotion)) + theme_minimal() +
+  coord_cartesian(ylim = c(0, 7)) +
+  geom_jitter(color = "#ffffff", shape = 21,
+    size = 2, alpha = .7, stroke = .15) +
+  coord_flip() + labs(y = "", x = "",
+    title = "Tweets about Coach K") +
+  theme(legend.position = "none",
+    text = element_text(size = 18),
+    axis.text.x = element_blank())
+
+subsetCK_2plot
+```
+
+## Resources
+- from -- https://cran.r-project.org/web/packages/rtweet/vignettes/intro.html 
+- QUICK: https://github.com/mkearney/rtweet/blob/master/README.md
+- https://github.com/mkearney/rtweet/blob/master/vignettes/auth.Rmd
+- https://cran.r-project.org/web/packages/syuzhet/vignettes/syuzhet-vignette.html
