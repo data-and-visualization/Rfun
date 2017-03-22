@@ -1,5 +1,5 @@
 ---
-title: "Rtweet for Rfun"
+title: "rtweet for Rfun"
 subtitle: "Packages to gather and analyse tweets"
 author: "John Little"
 date: "`r Sys.Date()`"
@@ -18,11 +18,20 @@ background-image:  url(http://library.duke.edu/data/sites/default/files/datagis/
 #[is.gd/rfunsurvey2017](https://is.gd/rfunsurvey2017)
 
 ---
+class: center, middle
+
+# Presentation materials availasble:
+
+[Slides](//libjohn.github.io/rtweet/slides.html)
+
+[Github](//github.com/libjohn/Rfun/tree/master/rtweet)
+
+---
 class: middle, center
 
 ## Twitter Stream Gathering
 
-[Rtweet](https://github.com/mkearney/rtweet/)
+[rtweet](https://github.com/mkearney/rtweet/)
 
 [twitteR](https://cran.r-project.org/web/packages/twitteR/)
 
@@ -79,13 +88,16 @@ class: middle, center, softblue
 ---
 ## Gathering is Easy
 
-> search_tweets("marchmadness", n=1000, lang = "en")
+```{}
+search_tweets("marchmadness", n=1000, lang = "en")`
+```
 
-&nbsp;
 
-> users_data(search_tweets)
+```{}
+users_data(search_tweets)
+```
 
-&nbsp;
+
 
 There are significant limitations in gathering historical data from the twitter API
 
@@ -96,7 +108,7 @@ Many Tools can gather
 
 - Easy:  https://tags.hawksey.info/
 
-- R with Rtweet
+- R with rtweet
 
 - Splunk 
 
@@ -134,38 +146,56 @@ class: orange
 class: bottom, center
 background-image:  url(images/word-cloud.png)
 
-- Example 1 -- LINK
+[Example 1](rtweet4rfun.nb.html): Search Tweets | Data Treatment | TDM | WorldCloud
 
 ---
 class: orange
 ## Sentiment Analysis
 
-- Treatment is potentially simpler
+Applied a simpler text treatment for this demonstration.
+See [Example 1](rtweet4rfun.nb.html) for a more complete treatment of data cleaning. 
 
-    - simplified:  UTF8 to ASCII
+```{}
+iconv(TweetText, 'UTF-8', 'ASCII') -> UseableText
+```
     
-- get sentiment
+Get sentiment
 
-> get_nrc_sentiment(s_usable)
+```{}
+get_nrc_sentiment(UsableText)
+```
 
 
 ---
-class:  middle, center
+class:  bottom, center
+background-image:  url(images/sentiment_vis.png)
 
-Example 2 -- LINK
+[Example 2](sentiment_analysis.nb.html): syuzhet::get_nrc_sentiment(), plot sentiment
 
 
 ---
 class: orange
 ## Network Graph
 
-> library(graphTweets)
+- `library(graphTweets)`
 
 - Transforms the document into edges and nodes
 
-- Creates a Gephi Document
+- Creates a Gephi Document:  `graphTweets.graphml`
 
-- Example 3 -- LINK
+&nbsp;
+
+&nbsp;
+
+- HTML Widget [DiagrammeR](https://github.com/rich-iannone/DiagrammeR) is worth investigation
+
+---
+class: bottom
+background-image: url(images/network_graph.png)
+
+1. [Example 3](network_graph.nb.html): `getEdges()` | `getNodes()` | plot
+
+2. Launch Gephi > Open Graph File > graphTweets.graphml
 
 
 ---
@@ -182,12 +212,13 @@ class: softblue
 ### Scheduling
 
 - See the [time-series](https://cran.r-project.org/web/packages/rtweet/vignettes/stream.html) vignette
+- [taskscheduleR: schedule R scripts with Windows task manager](https://www.r-bloggers.com/taskscheduler-r-package-to-schedule-r-scripts-with-the-windows-task-manager-2/)
 
 ### Analysis & Issues
 
 - Machine Learning
 
-- Social Science Implications
+- Implications for Social Science 
 
 ### Keeping up from a tool perspective
 

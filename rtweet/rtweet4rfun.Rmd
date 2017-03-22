@@ -24,7 +24,8 @@ library(wordcloud2)
 search_tweets
 ```{r getTweets}
 tweet_collection <- search_tweets("marchmadness", n=1000, lang = "en")
-tweet_collection
+tweet_collection <- tweet_collection %>% 
+  filter(is_retweet == "FALSE")
 ```
 
 
@@ -54,6 +55,7 @@ corpus.prep <- tm_map(corpus.prep, removeNumbers)
 
 # remove stop words 
 corpus <- tm_map(corpus.prep, removeWords, stopwords("english")) 
+# docs <- tm_map(docs, removeWords, c("department", "email"))   
 
 # stem remaining words
 corpus <- tm_map(corpus, stemDocument)  # snowballC::StemDocument() 
@@ -71,7 +73,7 @@ v <- sort(rowSums(m),decreasing=TRUE)
 d <- data.frame(word = names(v),freq=v)
 
 d <- d %>% 
-  slice(2:100)
+  slice(2:200)
 
 ```
 
