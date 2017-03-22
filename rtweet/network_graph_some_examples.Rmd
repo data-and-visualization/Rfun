@@ -1,5 +1,5 @@
 ---
-title: "Graph Tweett"
+title: "Graph Tweet"
 subtitle: "More Examples"
 author: "John Little"
 date: '`r Sys.Date()`'
