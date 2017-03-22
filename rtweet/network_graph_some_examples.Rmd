@@ -12,7 +12,7 @@ Using the graphTweets package with the rtweet package to generate a network grap
 
 http://john-coene.com/packages/graphTweets/examples
 
-```{r}
+```{r, warning=FALSE}
 library(graphTweets)
 library(tidyverse)
 library(rtweet)
@@ -78,5 +78,30 @@ V(g)$color <- colorRampPalette(pal)(length(V(g)$favorite_count))
 # plot vertex size ~ degree
 plot(g, layout = layout.fruchterman.reingold(g), vertex.color = V(g)$color,
      vertex.size = log1p(degree(g)) * 3)
+```
+
+## Locations
+```{r}
+dukmbb_location <- users_data(dukmbb)
+
+dukmbb_coords <- lookup_coords(dukmbb_location$location[1], "country:US")
+
+# lookup each location using sapply
+dukmbb_coords <-  sapply(dukmbb_location$location, function(x) lookup_coords(x, "country:US")) 
+
+locality <- sapply(dukmbb_location$location, function(x) lookup_coords(x)) 
+```
+
+## not working yet
+```{}
+dukmbb_coords[10:15]
+
+split(dukmbb_coords,":")
+
+cbind(dukmbb_location$location, locality[[1]], locality[[2]])
+
+
+locality[[1:4]]
+
 ```
 
