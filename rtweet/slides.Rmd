@@ -20,7 +20,7 @@ background-image:  url(http://library.duke.edu/data/sites/default/files/datagis/
 ---
 class: center, middle
 
-# Presentation materials availasble
+# Presentation Materials
 
 [Slides](//libjohn.github.io/rtweet/slides.html)
 
