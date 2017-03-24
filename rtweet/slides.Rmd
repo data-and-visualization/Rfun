@@ -283,13 +283,13 @@ plot(g, layout = layout.fruchterman.reingold(g), vertex.color = V(g)$color,
 ---
 ### Geocode tweeters with ggmap and leaflet
 ```{r, include=FALSE}
-dukmbb_location <- dukmbb_nRT %>% 
+dukmbb_location <- dukmbb %>% 
   users_data()
 
 dukmb_coords <- dukmbb_location %>% 
   filter(!is.na(location)) %>% 
   mutate_geocode(location, source = "dsk") %>% 
-  select(user_id, name, screen_name, location, lon, lat)
+  select(user_id, name, screen_name, followers_count, location, lon, lat)
 ```
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 dukmb_coords %>% 
@@ -299,7 +299,12 @@ dukmb_coords %>%
   setView(-98.556102, 39.810390, zoom = 3) %>% 
   addMarkers(popup = dukmb_coords$screen_name)
 ```
-Although rtweet has `lookup_coords()` I did not find it to be successful for my test.  It may work fine with further review.
+
+---
+
+### Notes on previous slide
+
+Although rtweet has `lookup_coords()` I did not find it to be successful for my test.  It may work fine upon further review.  I chose to use ggmap and leaflet.  see [my R Notebook](network_graph_more_examples.nb.html) for code details 
 
 ---
 class: orange
