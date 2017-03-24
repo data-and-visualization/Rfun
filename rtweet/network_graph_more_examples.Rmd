@@ -21,6 +21,7 @@ library(networkD3)
 library(RColorBrewer)
 library(listviewer)
 library(purrr)
+library(ggmap)
 ```
 
 ## Get Tweets
@@ -177,6 +178,19 @@ lookup_coords("Elm City, NC")
 
 dukmbb_location %>% 
   mutate(coords = lookup_coords(location))
+
+dukmbb_location[1:25] %>% 
+  filter(!is.na(location)) %>% 
+  mutate(coords = as.list(geocode(dukmbb_location$location, output = c("latlon"), source = "dsk")))
+  
+as.list(geocode("Greenville, IL", output = c("latlon"), source = "dsk"))
+
+dukmbb_location[1:25] %>% 
+  filter(!is.na(location)) %>% 
+  mutate_geocode(location)
+  
+  
+geocode(dukmbb_location$location)
 
 ```
 
