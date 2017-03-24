@@ -89,12 +89,12 @@ class: middle, center, softblue
 ## Gathering is Easy
 
 ```{}
-search_tweets("marchmadness", n=1000, lang = "en")`
+mm_tweets <- search_tweets("marchmadness", n=1000, lang = "en")
 ```
 
 
 ```{}
-users_data(search_tweets)
+users_data(mm_tweets)
 ```
 
 

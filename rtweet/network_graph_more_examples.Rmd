@@ -88,6 +88,8 @@ dukmbb_location <- users_data(dukmbb)
 
 dukmbb_coords <- lookup_coords(dukmbb_location$location[1], "country:US")
 
+class(dukmbb_coords_foo)
+
 # lookup each location using sapply
 dukmbb_coords <-  sapply(dukmbb_location$location, function(x) lookup_coords(x, "country:US")) 
 
@@ -160,6 +162,21 @@ x <- map(locality[48:52], `[`, 2:3)
 
 y <- map_df(locality[48:52], `[`, 2:3)
 
+
+sapply(dukmbb_location$location, function(x) lookup_coords(x, "country:US")) 
+map(dukmbb_location$location, lookup_coords(location, "country:US"))
+
+
+lookup_coords(dukmbb_location$location[1], "country:US")
+
+foo <- map_df(dukmbb_location$location[1:10], lookup_coords(dukmbb_location$location))
+
+map(dukmbb_location$location, lookup_coords(dukmbb_location$location))
+
+lookup_coords("Elm City, NC")
+
+dukmbb_location %>% 
+  mutate(coords = lookup_coords(location))
 
 ```
 
