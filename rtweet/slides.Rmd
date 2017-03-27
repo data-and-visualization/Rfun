@@ -12,6 +12,21 @@ output:
       highlightLines: true
       countIncrementalSlides: false
 ---
+exclude: true
+
+## Setup for the GraphTweet slides
+```{r, include=FALSE}
+library(graphTweets)
+library(tidyverse)
+library(rtweet)
+library(igraph)
+library(networkD3)
+library(RColorBrewer)
+library(ggmap)
+library(leaflet)
+```
+
+---
 class: center, bottom
 background-image:  url(http://library.duke.edu/data/sites/default/files/datagis/images/data_gis_logo.png)
 
@@ -20,7 +35,7 @@ background-image:  url(http://library.duke.edu/data/sites/default/files/datagis/
 ---
 class: center, middle
 
-# Presentation materials availasble
+# Presentation Materials
 
 [Slides](//libjohn.github.io/rtweet/slides.html)
 
@@ -89,12 +104,12 @@ class: middle, center, softblue
 ## Gathering is Easy
 
 ```{}
-search_tweets("marchmadness", n=1000, lang = "en")`
+mm_tweets <- search_tweets("marchmadness", n=1000, lang = "en")
 ```
 
 
 ```{}
-users_data(search_tweets)
+users_data(mm_tweets)
 ```
 
 
@@ -197,6 +212,99 @@ background-image: url(images/network_graph.png)
 
 2. Launch Gephi > Open Graph File > graphTweets.graphml
 
+---
+class: center, middle
+
+## More graphTweets Examples
+
+For the next few slides see [my R Notebook](network_graph_more_examples.nb.html) for code details 
+
+
+---
+class: middle
+### graphTweets -- Identify Edges
+```{r getTweets, message=FALSE, warning=FALSE, include=FALSE}
+dukmbb <- search_tweets("dukembb", n=100, lang = "en")
+dukmbb_nRT <- dukmbb%>% 
+  filter(is_retweet == FALSE)
+```
+```{r, echo=FALSE}
+edges <- getEdges(data = dukmbb_nRT, tweets = "text", source = "screen_name")
+
+edges <- edges[!duplicated(edges),]
+
+g <- igraph::graph.data.frame(edges, directed = TRUE)
+
+igraph::plot.igraph(g, layout = layout.fruchterman.reingold(g))
+
+```
+```
+dukmbb <- search_tweets("dukembb", n=100, lang = "en")
+```
+---
+### Edges with NetworkD3
+
+```{r, echo=FALSE}
+edges <- getEdges(data = dukmbb, tweets = "text", source = "screen_name")
+edges <- edges[!duplicated(edges),]
+
+networkD3::simpleNetwork(edges, Source = "source", Target = "target")
+```
+
+---
+```{r, include=FALSE}
+
+# edges <- getEdges(data = dukmbb, tweets = "text", source = "screen_name")
+edges_ex2 <- getEdges(dukmbb_nRT, source = "screen_name", tweets = "text", 
+                  str.length = NULL, "favorite_count")
+# edges_ex2 <- edges_ex2[!duplicated(edges),]
+
+nodes <- getNodes(edges_ex2, source = "source", target = "target", "favorite_count")
+
+# replace NA with 0
+nodes$retweetCount[is.na(nodes$favorite_count)] <- 0
+
+# build graph
+g <- igraph::graph.data.frame(edges_ex2, directed = TRUE, vertices = nodes)
+
+```
+### Nodes plot from [Coene's example 2](http://john-coene.com/packages/graphTweets/examples#example_02)
+
+```{r, echo=FALSE}
+pal <- RColorBrewer:::brewer.pal(5, "Dark2")
+V(g)$color <- colorRampPalette(pal)(length(V(g)$favorite_count))
+
+# plot vertex size ~ degree
+plot(g, layout = layout.fruchterman.reingold(g), vertex.color = V(g)$color,
+     vertex.size = log1p(degree(g)) * 3)
+```
+
+
+---
+### Geocode tweeters with ggmap and leaflet
+```{r, include=FALSE}
+dukmbb_location <- dukmbb %>% 
+  users_data()
+
+dukmb_coords <- dukmbb_location %>% 
+  filter(!is.na(location)) %>% 
+  mutate_geocode(location, source = "dsk") %>% 
+  select(user_id, name, screen_name, followers_count, location, lon, lat)
+```
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+dukmb_coords %>% 
+  filter(!is.na(lon)) %>% 
+  leaflet() %>% 
+  addTiles() %>% 
+  setView(-98.556102, 39.810390, zoom = 3) %>% 
+  addMarkers(popup = dukmb_coords$screen_name)
+```
+
+---
+
+### Notes on previous slide
+
+Although rtweet has `lookup_coords()` I did not find it to be successful for my test.  It may work fine upon further review.  I chose to use ggmap and leaflet.  see [my R Notebook](network_graph_more_examples.nb.html) for code details 
 
 ---
 class: orange

@@ -1,0 +1,108 @@
+---
+title: "graphTweets"
+subtitle: "More Examples"
+author: "John Little"
+date: '`r Sys.Date()`'
+output: html_notebook
+---
+
+# Preface
+
+Using the graphTweets package with the rtweet package to generate a network graph.  graphTweet can write a file in "gephi format" -- for which Gephi can open and display
+
+http://john-coene.com/packages/graphTweets/examples
+
+```{r, message=FALSE, warning=FALSE}
+library(graphTweets)
+library(tidyverse)
+library(rtweet)
+library(igraph)
+library(networkD3)
+library(RColorBrewer)
+library(ggmap)
+library(leaflet)
+```
+
+## Get Tweets
+```{r getTweets, message=FALSE, warning=FALSE}
+dukmbb <- search_tweets("dukembb", n=100, lang = "en")
+dukmbb_nRT <- dukmbb%>% 
+  filter(is_retweet == FALSE)
+```
+
+
+## Identify Edges
+```{r}
+edges <- getEdges(data = dukmbb_nRT, tweets = "text", source = "screen_name")
+
+edges <- edges[!duplicated(edges),]
+
+g <- igraph::graph.data.frame(edges, directed = TRUE)
+
+igraph::plot.igraph(g, layout = layout.fruchterman.reingold(g))
+
+```
+
+```{r}
+edges <- getEdges(data = dukmbb, tweets = "text", source = "screen_name")
+edges <- edges[!duplicated(edges),]
+
+networkD3::simpleNetwork(edges, Source = "source", Target = "target")
+```
+
+## Example 2
+
+```{r}
+
+# edges <- getEdges(data = dukmbb, tweets = "text", source = "screen_name")
+edges_ex2 <- getEdges(dukmbb_nRT, source = "screen_name", tweets = "text", 
+                  str.length = NULL, "favorite_count")
+# edges_ex2 <- edges_ex2[!duplicated(edges),]
+
+nodes <- getNodes(edges_ex2, source = "source", target = "target", "favorite_count")
+
+# replace NA with 0
+nodes$retweetCount[is.na(nodes$favorite_count)] <- 0
+
+# build graph
+g <- igraph::graph.data.frame(edges_ex2, directed = TRUE, vertices = nodes)
+
+```
+
+
+## make plot for example 2
+from http://john-coene.com/packages/graphTweets/examples#example_02
+
+```{r}
+pal <- RColorBrewer:::brewer.pal(5, "Dark2")
+V(g)$color <- colorRampPalette(pal)(length(V(g)$favorite_count))
+
+# plot vertex size ~ degree
+plot(g, layout = layout.fruchterman.reingold(g), vertex.color = V(g)$color,
+     vertex.size = log1p(degree(g)) * 3)
+```
+
+
+## Use ggmap to geocode
+
+Although rtweet has `lookup_coords()` I did not find it to be successful for my test.  It may work fine with further review.
+```{r }
+dukmbb_location <- dukmbb_nRT %>% 
+  users_data()
+
+dukmb_coords <- dukmbb_location %>% 
+  filter(!is.na(location)) %>% 
+  mutate_geocode(location, source = "dsk") %>% 
+  select(user_id, name, screen_name, location, lon, lat)
+```
+
+## geocode 
+```{r}
+dukmb_coords %>% 
+  filter(!is.na(lon)) %>% 
+  leaflet() %>% 
+  addTiles() %>% 
+  setView(-98.556102, 39.810390, zoom = 4) %>% 
+  addMarkers(popup = dukmb_coords$screen_name)
+```
+
