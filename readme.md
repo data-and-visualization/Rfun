@@ -1,7 +1,7 @@
 # R we having fun yet‽  A learning series on [[R](https://en.wikipedia.org/wiki/R_(programming_language))].
 
 
-See our latest **schedule, slides, video, and code at https://rfun.netlify.com/**
+See our latest **schedule**, which includes links to **slides, video, and code** at **https://rfun.netlify.com/**
 
 
 ## Sponsored by Duke University Libraries, [Data & Visualization Services](http://library.duke.edu/data)
